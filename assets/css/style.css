@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    transition: .15s all;
+    -webkit-transition: .15s all;
+    -moz-transition: .15s all;
+    -ms-transition: .15s all;
+    -o-transition: .15s all;
+}
+
+.night-mode {
+    color: white !important;
+    background: black !important;
+    outline-color: white !important;
+    border-color: white !important;
+    transition: .2s all !important;
+    -webkit-transition: .2s all !important;
+    -moz-transition: .2s all !important;
+    -ms-transition: .2s all !important;
+    -o-transition: .2s all !important;
+}
+
+#navbar {
+    transition: .2s ease-out;
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    -ms-transition: .2s ease-out;
+    -o-transition: .2s ease-out;
+}
+
+.nav-scroll {
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    transition: 2s all;
+    -webkit-transition: 2s all;
+    -moz-transition: 2s all;
+    -ms-transition: 2s all;
+    -o-transition: 2s all;
+    animation: 2s navscroll;
+    -webkit-animation: 2s navscroll;
+}
+
+@keyframes navscroll {
+    from {
+        transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        -moz-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        -o-transform: translateY(-100%);
+    }
+
+    to {
+        transform: translate(0%);
+        -webkit-transform: translate(0%);
+        -moz-transform: translate(0%);
+        -ms-transform: translate(0%);
+        -o-transform: translate(0%);
+    }
+}
+
+#change-mode {
+    cursor: pointer;
+    transition: .2s all;
+    -webkit-transition: .2s all;
+    -moz-transition: .2s all;
+    -ms-transition: .2s all;
+    -o-transition: .2s all;
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid salmon;
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    -webkit-animation: typing 3.5s steps(40, end), ;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
