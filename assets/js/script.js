@@ -93,11 +93,12 @@
 
     // navigation bar
     window.addEventListener('scroll', function(){ 
-        if(window.pageYOffset >= 100){
+        if(window.pageYOffset >= 650){
             navbar.classList.add('nav-scroll');
         } else if(window.pageYOffset <= 0){
             navbar.classList.remove('nav-scroll');
         }
+        console.log(window.pageYOffset);
     });
 
 // default typer
@@ -113,9 +114,10 @@
 $("#typewriter").typer({
 
   strings: [
-    "Hai !",
+    "Hallo !",
+    "Selamat Datang!",
     "Saya Deri Kurniawan",
-    "Saya Seorang Developer !"
+    "Saya Seorang Developer!"
   ],
 
   typeSpeed: 60,

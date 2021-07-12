@@ -72,6 +72,7 @@
 .typewriter {
     overflow: hidden;
     border-right: .15em solid salmon;
+    color: white !important;
     white-space: nowrap;
     margin: 0 auto;
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
@@ -86,4 +87,12 @@
     to {
         width: 100%;
     }
+}
+
+#section-1 {
+    margin: auto;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
