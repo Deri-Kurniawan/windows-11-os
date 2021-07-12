@@ -98,7 +98,7 @@
         } else if(window.pageYOffset <= 0){
             navbar.classList.remove('nav-scroll');
         }
-        console.log(window.pageYOffset);
+        // console.log(window.pageYOffset);
     });
 
 // default typer

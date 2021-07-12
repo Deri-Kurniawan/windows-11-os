@@ -27,6 +27,7 @@
     -moz-transition: .2s ease-out;
     -ms-transition: .2s ease-out;
     -o-transition: .2s ease-out;
+    z-index: 1;
 }
 
 .nav-scroll {
@@ -91,7 +92,7 @@
 
 #section-1 {
     margin: auto;
-    height: 600px;
+    height: 550px;
     display: flex;
     justify-content: center;
     flex-direction: column;
