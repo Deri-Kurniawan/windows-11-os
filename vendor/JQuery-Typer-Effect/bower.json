@@ -1,0 +1,18 @@
+{
+    "name": "typer.js",
+    "version": "1.2.0",
+    "license": "MIT",
+    "homepage": "http://123apps.org",
+    "authors": [
+        "123Apps <http://123apps.org@gmail.com>"
+    ],
+    "description": "Typer.js is a great free jQuery plugin that animates typing string",
+    "main": "dist/typer.min.js",
+    "keywords": [
+        "typer.js",
+        "typerjs"
+    ],
+    "ignore": [
+        "bower_components"
+    ]
+}
