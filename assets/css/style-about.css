@@ -1,0 +1,10 @@
+body {
+    overflow-x: hidden;
+}
+
+/* delete select and drag access to user */
+* {
+    user-select: none;
+    user-zoom: unset;
+    -webkit-user-drag: none;
+}

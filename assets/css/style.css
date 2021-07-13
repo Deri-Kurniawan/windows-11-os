@@ -119,10 +119,6 @@
     flex-direction: column;
 }
 
-p#about-description {
-    text-indent: 50px;
-}
-
 img {
     transition: 2s all;
     -webkit-transition: 2s all;
@@ -157,4 +153,32 @@ li>.nav-link:hover {
     position: fixed;
     right: 5%;
     bottom: 5%;
+}
+
+
+/* customize scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    /* display: none; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
