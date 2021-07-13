@@ -63,7 +63,7 @@
     // navigation bar
     window.addEventListener('scroll', function(){ 
 
-        if(window.pageYOffset >= 650){
+        if(window.pageYOffset >= 110){
             navbar.classList.add('nav-scroll');
         } else if(window.pageYOffset <= 0){
             navbar.classList.remove('nav-scroll');

@@ -9,6 +9,10 @@
     -o-transition: .15s all;
 }
 
+body {
+    overflow-x: none;
+}
+
 .night-mode {
     color: white !important;
     background: black !important;
