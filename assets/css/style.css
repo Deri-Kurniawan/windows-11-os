@@ -68,6 +68,27 @@
     -moz-transition: .2s all;
     -ms-transition: .2s all;
     -o-transition: .2s all;
+    animation: change-mode 5s linear infinite;
+    -webkit-animation: change-mode 5s linear infinite;
+}
+
+@keyframes change-mode {
+    from {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+    }
+
 }
 
 .typewriter {
@@ -77,7 +98,7 @@
     white-space: nowrap;
     margin: 0 auto;
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-    -webkit-animation: typing 3.5s steps(40, end), ;
+    -webkit-animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
@@ -96,4 +117,28 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+p#about-description {
+    text-indent: 50px;
+}
+
+img {
+    transition: 2s all;
+    -webkit-transition: 2s all;
+    -moz-transition: 2s all;
+    -ms-transition: 2s all;
+    -o-transition: 2s all;
+}
+
+.navbar-brand:hover {
+    letter-spacing: 5px;
+}
+
+li>.nav-link:hover {
+    color: red !important;
+}
+
+.active {
+    color: red !important;
 }

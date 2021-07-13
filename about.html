@@ -32,11 +32,17 @@
 
     <style>
         body {
-            overflow: hidden;
+            overflow-x: hidden;
+        }
+
+        * {
+            user-select: none;
+            user-zoom: unset;
+            -webkit-user-drag: none;
         }
     </style>
 
-    <title>Deri Kurniawan | Welcome</title>
+    <title>Deri Kurniawan | About</title>
 
 </head>
 
@@ -77,16 +83,48 @@
 
     <!-- main -->
     <div id="main">
-        <div class="text-center" id="section-1">
-            <span class="display-3 fw-bold" id="typewriter-opening"></span>
+        <div class="mt-5">
+            <div class="row">
+                <div class="col-md text-center">
+                    <div class="container">
+                        <img class="img-thumbnail" src="assets/img/deri.jpg" alt="" width="350px">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container">
+                        <div class="m-5">
+                            <span class="display-3 fw-bold" id="typewriter-name"></span>
+                            <p class="mt-4 fw-bolder" id="about-description">
+                            </p>
+                            <button class="btn btn-outline-danger float-end" title="next"><i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- end main -->
-
     <script>
-        localStorage['currentPage'] = 'home';
-    </script>
+        localStorage['currentPage'] = 'about';
 
+        var aboutDescription = document.querySelector('#about-description');
+
+        var i = 0;
+        var txt =
+            "Saya Deri Kurniawan, Seorang Web Developer yang saat ini masih berstatus sebagai mahasiswa di Universitas Muhammadiyah Sukabumi Dengan Jurusan Teknik Informatika. Saya seorang yang menyukai hal baru, Saya sangat senang jika berurusan dengan teknologi, termasuk dalam merancang, membangun, mengembangkan dan mewujudkan sesuatu yang dapat bermanfaat dalam dunia teknologi. Untuk itulah alasan saya memilih jurusan Teknik Informatika.";
+        var speed = 10;
+
+        typeWriter();
+
+        function typeWriter() {
+            if (i < txt.length) {
+                aboutDescription.innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+    </script>
     <!-- script js -->
     <script src="assets/js/script.js"></script>
 

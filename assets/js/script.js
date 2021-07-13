@@ -2,6 +2,7 @@
     var body = document.body;
     var navbar = document.getElementById('navbar');
     var changeMode = document.getElementById('change-mode');
+    var aboutDescription = document.querySelector('#about-description');
 
     // Check Last Mode
 
@@ -80,7 +81,7 @@
     //   });
 
     // custom typer
-$("#typewriter").typer({
+$("#typewriter-opening").typer({
 
   strings: [
     "Hallo !",
@@ -96,3 +97,33 @@ $("#typewriter").typer({
   autoStart:true,
   startDelay: 100,
 });
+
+$("#typewriter-name").typer({
+
+  strings: [
+    "Deri Kurniawan",
+  ],
+  typeSpeed: 100,
+  backspaceSpeed: 20,
+  backspaceDelay: 800,
+  repeatDelay: 500,
+  repeat:true,
+  autoStart:true,
+  startDelay: 100,
+});
+
+var navLink = document.querySelectorAll('.nav-link');
+
+switch (localStorage['currentPage']) {
+    case 'home':
+        navLink[0].classList.toggle('active');
+        break;
+        case 'project':
+        navLink[1].classList.toggle('active');
+        break;
+        case 'about':
+        navLink[2].classList.toggle('active');
+        break;
+    default:
+        break;
+}
