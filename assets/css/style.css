@@ -142,3 +142,19 @@ li>.nav-link:hover {
 .active {
     color: red !important;
 }
+
+#slide-about-1,
+#slide-about-2,
+#slide-about-3 {
+    transition: .1s all;
+    -webkit-transition: .1s all;
+    -moz-transition: .1s all;
+    -ms-transition: .1s all;
+    -o-transition: .1s all;
+}
+
+#about-next-btn {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+}

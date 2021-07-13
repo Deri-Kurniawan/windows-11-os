@@ -35,6 +35,7 @@
             overflow-x: hidden;
         }
 
+        /* delete select and drag access to user */
         * {
             user-select: none;
             user-zoom: unset;
@@ -62,7 +63,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold fs-6" href="#project" title="Project">
+                    <a class="nav-link fw-bold fs-6" href="#project" title="Project" onclick="alert('Coming Soon!')">
                         <i class="fas fa-laptop-code fs-4"></i>
                     </a>
                 </li>
@@ -83,29 +84,193 @@
 
     <!-- main -->
     <div id="main">
-        <div class="mt-5">
+        <div class="mt-5 mb-5">
             <div class="row">
                 <div class="col-md text-center">
                     <div class="container">
+                        <!-- author img -->
                         <img class="img-thumbnail" src="assets/img/deri.jpg" alt="" width="350px">
+                        <!-- end of author img -->
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="container">
                         <div class="m-5">
-                            <span class="display-3 fw-bold" id="typewriter-name"></span>
-                            <p class="mt-4 fw-bolder" id="about-description">
-                            </p>
-                            <button class="btn btn-outline-danger float-end" title="next"><i
-                                    class="fas fa-arrow-right"></i></button>
+                            <!-- slide about 1 -->
+                            <div id="slide-about-1">
+                                <span class="display-4 fw-bold" id="typewriter-name"></span>
+                                <hr>
+                                <p class="mt-4 fw-bolder" id="about-description">
+                                </p>
+                            </div>
+                            <!-- slide about 2 -->
+                            <div id="slide-about-2">
+                                <span class="display-4 fw-bold" id="typewriter-bio"></span>
+                                <hr>
+                                <table>
+                                    <tr>
+                                        <th class="col-md-6">Nama</th>
+                                        <td> : </td>
+                                        <td>Deri Kurniawan</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tempat Tanggal Lahir</th>
+                                        <td> : </th>
+                                        <td>Sukabumi, 5 juni 2021</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Universitas</th>
+                                        <td> : </th>
+                                        <td>Muhammadiyah Sukabumi</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Fakultas</th>
+                                        <td> : </th>
+                                        <td>Sains & Teknologi</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Prodi</th>
+                                        <td> : </th>
+                                        <td>Teknik Informatika</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Perkiraan Lulus</th>
+                                        <td> : </th>
+                                        <td>2023</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- slide about 3 -->
+                            <div id="slide-about-3">
+                                <span class="display-4 fw-bold" id="typewriter-ability"></span>
+                                <hr>
+                                <table class="col-12 m-2">
+                                    <tr>
+                                        <th class="col-3">HTML</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 90%;" aria-valuenow="90"
+                                                    aria-valuemin="0" aria-valuemax="100">90%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">CSS</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 80%;" aria-valuenow="80"
+                                                    aria-valuemin="0" aria-valuemax="100">80%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Java Script</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 75%;" aria-valuenow="75"
+                                                    aria-valuemin="0" aria-valuemax="100">75%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">PHP</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 85%;" aria-valuenow="85"
+                                                    aria-valuemin="0" aria-valuemax="100">85%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">My SQL</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 85%;" aria-valuenow="85"
+                                                    aria-valuemin="0" aria-valuemax="100">85%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Python</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 50%;" aria-valuenow="50"
+                                                    aria-valuemin="0" aria-valuemax="100">50%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Dart</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 65%;" aria-valuenow="65"
+                                                    aria-valuemin="0" aria-valuemax="100">65%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Bootstrap 5</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 85%;" aria-valuenow="85"
+                                                    aria-valuemin="0" aria-valuemax="100">85%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">CodeIgniter 3/4</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 80%;" aria-valuenow="80"
+                                                    aria-valuemin="0" aria-valuemax="100">80%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Laravel 8</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 50%;" aria-valuenow="50"
+                                                    aria-valuemin="0" aria-valuemax="100">50%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="col-3">Flutter</th>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
+                                                    role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                                    aria-valuemin="0" aria-valuemax="100">60%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- slider slide button -->
+                            <button class="btn btn-outline-danger float-end" id="about-next-btn" title="next">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- end of slide about -->
         </div>
     </div>
     <!-- end main -->
     <script>
+        // set current page
         localStorage['currentPage'] = 'about';
 
         var aboutDescription = document.querySelector('#about-description');
@@ -114,6 +279,46 @@
         var txt =
             "Saya Deri Kurniawan, Seorang Web Developer yang saat ini masih berstatus sebagai mahasiswa di Universitas Muhammadiyah Sukabumi Dengan Jurusan Teknik Informatika. Saya seorang yang menyukai hal baru, Saya sangat senang jika berurusan dengan teknologi, termasuk dalam merancang, membangun, mengembangkan dan mewujudkan sesuatu yang dapat bermanfaat dalam dunia teknologi. Untuk itulah alasan saya memilih jurusan Teknik Informatika.";
         var speed = 10;
+
+        $("#typewriter-name").typer({
+
+            strings: [
+                "About Me",
+            ],
+            typeSpeed: 100,
+            backspaceSpeed: 20,
+            backspaceDelay: 800,
+            repeatDelay: 500,
+            repeat: true,
+            autoStart: true,
+            startDelay: 100,
+        });
+        $("#typewriter-bio").typer({
+
+            strings: [
+                "My Bio",
+            ],
+            typeSpeed: 100,
+            backspaceSpeed: 20,
+            backspaceDelay: 800,
+            repeatDelay: 500,
+            repeat: true,
+            autoStart: true,
+            startDelay: 100,
+        });
+        $("#typewriter-ability").typer({
+
+            strings: [
+                "My Ability",
+            ],
+            typeSpeed: 100,
+            backspaceSpeed: 20,
+            backspaceDelay: 800,
+            repeatDelay: 500,
+            repeat: true,
+            autoStart: true,
+            startDelay: 100,
+        });
 
         typeWriter();
 
@@ -124,6 +329,44 @@
                 setTimeout(typeWriter, speed);
             }
         }
+
+        var clickCountNextAboutBtn = 1;
+
+        if (clickCountNextAboutBtn == 1) {
+            $('#slide-about-1').show();
+            $('#slide-about-2').hide();
+            $('#slide-about-3').hide();
+        }
+
+        $('#about-next-btn').on('click', function () {
+            clickCountNextAboutBtn += 1;
+            if (clickCountNextAboutBtn > 3) {
+                clickCountNextAboutBtn = 1;
+            }
+
+            switch (clickCountNextAboutBtn) {
+                case 1:
+                    $('#slide-about-1').show();
+                    $('#slide-about-2').hide();
+                    $('#slide-about-3').hide();
+                    break;
+                case 2:
+                    $('#slide-about-1').hide();
+                    $('#slide-about-2').show();
+                    $('#slide-about-3').hide();
+                    break;
+                case 3:
+                    $('#slide-about-1').hide();
+                    $('#slide-about-2').hide();
+                    $('#slide-about-3').show();
+                    break;
+
+                default:
+                    break;
+            }
+
+            // console.log(clickCountNextAboutBtn);
+        });
     </script>
     <!-- script js -->
     <script src="assets/js/script.js"></script>

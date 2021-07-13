@@ -98,20 +98,6 @@ $("#typewriter-opening").typer({
   startDelay: 100,
 });
 
-$("#typewriter-name").typer({
-
-  strings: [
-    "Deri Kurniawan",
-  ],
-  typeSpeed: 100,
-  backspaceSpeed: 20,
-  backspaceDelay: 800,
-  repeatDelay: 500,
-  repeat:true,
-  autoStart:true,
-  startDelay: 100,
-});
-
 var navLink = document.querySelectorAll('.nav-link');
 
 switch (localStorage['currentPage']) {
