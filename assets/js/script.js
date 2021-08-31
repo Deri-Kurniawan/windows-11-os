@@ -27,7 +27,7 @@
     // add event
     changeMode.addEventListener('click', function () {
         // check last class name
-        
+
         // activation night mode
         if (navbar.classList[1] == 'navbar-light') {
             navbar.classList.replace('bg-light', 'night-mode');
@@ -61,17 +61,17 @@
 
 
     // navigation bar
-    window.addEventListener('scroll', function(){ 
+    window.addEventListener('scroll', function () {
 
-        if(window.pageYOffset >= 110){
+        if (window.pageYOffset >= 110) {
             navbar.classList.add('nav-scroll');
-        } else if(window.pageYOffset <= 0){
+        } else if (window.pageYOffset <= 0) {
             navbar.classList.remove('nav-scroll');
         }
         // console.log(window.pageYOffset);
     });
 
-// default typer
+    // default typer
     // $("#typewriter").typer({
     //     strings: [
     //       "Hello!",
@@ -81,35 +81,35 @@
     //   });
 
     // custom typer
-$("#typewriter-opening").typer({
+    $("#typewriter-opening").typer({
 
-  strings: [
-    "Hallo !",
-    "Selamat Datang!",
-    "Saya Deri Kurniawan",
-    "Saya Seorang Developer!"
-  ],
-  typeSpeed: 60,
-  backspaceSpeed: 20,
-  backspaceDelay: 800,
-  repeatDelay: 500,
-  repeat:true,
-  autoStart:true,
-  startDelay: 100,
-});
+        strings: [
+            "Hallo !",
+            "Selamat Datang!",
+            "Saya Deri Kurniawan",
+            "Saya Seorang Developer!"
+        ],
+        typeSpeed: 60,
+        backspaceSpeed: 20,
+        backspaceDelay: 800,
+        repeatDelay: 500,
+        repeat: true,
+        autoStart: true,
+        startDelay: 100,
+    });
 
-var navLink = document.querySelectorAll('.nav-link');
+    var navLink = document.querySelectorAll('.nav-link');
 
-switch (localStorage['currentPage']) {
-    case 'home':
-        navLink[0].classList.toggle('active');
-        break;
-        case 'project':
-        navLink[1].classList.toggle('active');
-        break;
+    switch (localStorage['currentPage'].toLowerCase()) {
+        case 'home':
+            navLink[0].classList.toggle('active');
+            break;
+        case 'timeline':
+            navLink[1].classList.toggle('active');
+            break;
         case 'about':
-        navLink[2].classList.toggle('active');
-        break;
-    default:
-        break;
-}
+            navLink[2].classList.toggle('active');
+            break;
+        default:
+            break;
+    }
