@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/style-about.css">
 
     <!-- Jquery Typer -->
-    <script src="vendor/JQuery-Typer-Effect/dist/typer.min.js"></script>
+    <script src="./assets/vendor/JQuery-Typer-Effect/dist/typer.min.js"></script>
 
     <title>Deri Kurniawan | About</title>
 
@@ -53,8 +53,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold fs-6" href="#project" title="Project" onclick="alert('Coming Soon!')">
-                        <i class="fas fa-laptop-code fs-4"></i>
+                    <a class="nav-link fw-bold fs-6" href="timeline.html" title="Timeline">
+                        <i class="fas fa-code-branch fs-4"><sub><i class="fas fa-clock"></i></sub></i>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -79,7 +79,7 @@
                 <div class="col text-center">
                     <div class="container">
                         <!-- author img -->
-                        <img class="img-thumbnail" src="assets/img/deri.jpg" alt="Deri Kurniawan Person Image"
+                        <img class="img-thumbnail" src="./assets/img/deri.jpg" alt="Deri Kurniawan Person Image"
                             width="325px" style="vertical-align: middle;">
                         <!-- end of author img -->
                     </div>
@@ -176,7 +176,7 @@
                                     <span class="display-5 fw-bold" id="typewriter-ability"></span>
                                 </div>
                                 <hr>
-                                <table class="col-12 m-2">
+                                <!-- <table class="col-12 m-2">
                                     <tr>
                                         <th class="col-4">HTML</th>
                                         <td>
@@ -297,7 +297,8 @@
                                             </div>
                                         </td>
                                     </tr>
-                                </table>
+                                </table> -->
+                                <h3 class="text-center">I Feel I Don't Know Anything So Far</h3>
                             </div>
                             <!-- slider slide button -->
                             <button class="btn btn-outline-danger float-end" id="about-next-btn" title="next">
@@ -312,12 +313,16 @@
     </div>
     <!-- end of main -->
 
+    <script>
+        // set current page
+        localStorage['currentPage'] = 'about';
+    </script>
 
     <!-- script about js -->
-    <script src="assets/js/script-about.js"></script>
+    <script src="./assets/js/script-about.js"></script>
 
     <!-- script js -->
-    <script src="assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
