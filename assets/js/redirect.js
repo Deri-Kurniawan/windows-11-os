@@ -4,5 +4,5 @@ const urlTarget = new URL(urlString).searchParams.get("to");
 console.log(urlTarget)
 
 if (urlTarget !== null && urlTarget !== '') {
-    location.href = `https://www.${urlTarget}`;
+    location.href = `https://${urlTarget}`;
 }
