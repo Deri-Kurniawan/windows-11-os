@@ -1,7 +1,7 @@
 // set current page
 localStorage['currentPage'] = 'about';
 
-var aboutDescription = document.querySelector('#about-description');
+var aboutDescriptionElement = document.querySelector('#about-description');
 
 var i = 0;
 var txt =
@@ -52,7 +52,7 @@ typeWriter();
 
 function typeWriter() {
   if (i < txt.length) {
-    aboutDescription.innerHTML += txt.charAt(i);
+    aboutDescriptionElement.innerHTML += txt.charAt(i);
     i++;
     setTimeout(typeWriter, speed);
   }

@@ -1,8 +1,8 @@
 // set var
-var body = document.body;
-var navbar = document.getElementById('navbar');
-var changeMode = document.getElementById('change-mode');
-var aboutDescription = document.querySelector('#about-description');
+let body = document.body;
+let navbar = document.getElementById('navbar');
+let changeMode = document.getElementById('change-mode');
+let metaTagThemeColor = document.querySelector('meta[name=theme-color]');
 
 // Check Last Mode
 
@@ -13,6 +13,7 @@ if (localStorage['nightMode'] === 'off') {
   navbar.classList.replace('night-mode', 'bg-light');
   navbar.classList.replace('navbar-dark', 'navbar-light');
   body.classList.remove('night-mode');
+  metaTagThemeColor.setAttribute('content', '#fff');
   // day to night
 } else if (localStorage['nightMode'] === 'on') {
   changeMode.setAttribute('title', 'Set To Day Mode');
@@ -20,6 +21,7 @@ if (localStorage['nightMode'] === 'off') {
   navbar.classList.replace('bg-light', 'night-mode');
   navbar.classList.replace('navbar-light', 'navbar-dark');
   body.classList.add('night-mode');
+  metaTagThemeColor.setAttribute('content', '#000');
 }
 
 // add event
@@ -34,6 +36,7 @@ changeMode.addEventListener('click', function () {
     changeMode.setAttribute('title', 'Set To Day Mode');
     navbar.classList.replace('navbar-light', 'navbar-dark');
     body.classList.add('night-mode');
+    metaTagThemeColor.setAttribute('content', '#000');
 
     // set night mode to on
     localStorage['nightMode'] = 'on';
@@ -46,6 +49,7 @@ changeMode.addEventListener('click', function () {
     changeMode.setAttribute('title', 'Set To Night Mode');
     changeMode.classList.replace('fa-sun', 'fa-moon');
     body.classList.remove('night-mode');
+    metaTagThemeColor.setAttribute('content', '#fff');
 
     // set night mode to off
     localStorage['nightMode'] = 'off';
