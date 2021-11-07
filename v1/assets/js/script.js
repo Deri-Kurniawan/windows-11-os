@@ -4,8 +4,6 @@ let navbar = document.getElementById('navbar');
 let changeMode = document.getElementById('change-mode');
 let metaTagThemeColor = document.querySelector('meta[name=theme-color]');
 
-// Check Last Mode
-
 // night to day 
 if (localStorage['nightMode'] === 'off') {
   changeMode.setAttribute('title', 'Set To Night Mode');
@@ -100,4 +98,11 @@ switch (localStorage['currentPage'].toLowerCase()) {
     break;
 }
 
-localStorage.setItem('app-version', 1);
+let appVersionSelectorElement = document.querySelector('#appVersionSelector');
+appVersionSelectorElement.addEventListener('change', () => {
+  window.location.href = `${window.location.origin}/v${appVersionSelectorElement.value}`;
+});
+
+const appVersionTextViewer = document.querySelector('.app-version-viewer');
+appVersionTextViewer.innerHTML = `App Version ${localStorage.getItem('appVersion') || 1}.0`;
+localStorage.setItem('appVersion', 1);
