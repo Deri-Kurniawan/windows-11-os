@@ -1,3 +1,4 @@
 <script>
-  window.location.href = `${window.location.origin}/v1`;
+  const appVersion = localStorage.getItem('app-version') || 1;
+  window.location.href = `${window.location.origin}/v${appVersion}`;
 </script>
