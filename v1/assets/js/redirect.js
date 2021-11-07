@@ -1,8 +1,11 @@
 const urlString = window.location.href;
-const urlTarget = new URL(urlString).searchParams.get("to");
+const getRedirectOutLink = new URL(urlString).searchParams.get("ro");
+const getRedirectInLink = new URL(urlString).searchParams.get("ri");
 
-console.log(urlTarget)
+if (getRedirectOutLink !== null && getRedirectOutLink !== '') {
+  location.href = `https://${getRedirectOutLink}`;
+}
 
-if (urlTarget !== null && urlTarget !== '') {
-    location.href = `https://${urlTarget}`;
+if (getRedirectInLink !== null && getRedirectInLink !== '') {
+  location.href = `https://${getRedirectInLink}`;
 }
