@@ -7,5 +7,5 @@ if (getRedirectOutLink !== null && getRedirectOutLink !== '') {
 }
 
 if (getRedirectInLink !== null && getRedirectInLink !== '') {
-  location.href = `https://${getRedirectInLink}`;
+  location.href = `${window.location.origin}/${getRedirectInLink}`;
 }
