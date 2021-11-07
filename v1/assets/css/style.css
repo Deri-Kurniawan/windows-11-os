@@ -157,9 +157,19 @@ li>.nav-link:hover {
 #about-next-btn {
   position: fixed;
   right: 5%;
-  bottom: 5%;
+  bottom: 8%;
 }
 
+.box-app-version {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  bottom: 0px;
+  padding: .5em 2em;
+  background: none;
+}
 
 /* customize scroll bar */
 /* width */

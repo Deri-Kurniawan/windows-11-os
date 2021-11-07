@@ -51,7 +51,7 @@
       </ul>
       <div class="d-flex">
         <button id="change-mode" title="change mode">
-          <i class="fas fa-moon fs-5 text-warning"></i>
+          <i class="fas fa-moon fs-5 text-warning" id="change-mode-icon"></i>
         </button>
       </div>
     </div>
@@ -155,141 +155,7 @@
                   <span class="display-5 fw-bold" id="typewriter-ability" aria-label="my ability" tabindex="0"></span>
                 </div>
                 <hr>
-                <table class="col-12 m-2" tabindex="0">
-                  <tr>
-                    <th class="col-4">HTML</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">CSS</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">JavaScript</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">PHP</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">MySQL</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">Python</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">Dart</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">Bootstrap 5</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">JQuery</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">CodeIgniter 3/4</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">Laravel 8</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th class="col-3">Flutter</th>
-                    <td>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
-                          aria-valuemax="100">
-                          1%</div>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-                <h3 class="text-center">I Feel I Don't Know Anything So Far</h3>
+                <table class="col-12 m-2" tabindex="0" id="abilities-list"></table>
               </div>
               <button class="btn btn-outline-danger float-end" id="about-next-btn" title="next">
                 <i class="fas fa-arrow-right"></i>
@@ -298,6 +164,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="box-app-version">
+    <div>
+      <label for="appVersionSelector">Select Version : </label>
+      <select class="text-center" id="appVersionSelector">
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
+    <div>
+      <span class="app-version-viewer"></span>
     </div>
   </div>
 

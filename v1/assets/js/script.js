@@ -1,23 +1,22 @@
 // set var
 let body = document.body;
 let navbar = document.getElementById('navbar');
-let changeMode = document.getElementById('change-mode');
+let changeModeElement = document.getElementById('change-mode');
+let changeModeIconElement = document.getElementById('change-mode-icon');
 let metaTagThemeColor = document.querySelector('meta[name=theme-color]');
-
-// Check Last Mode
 
 // night to day 
 if (localStorage['nightMode'] === 'off') {
-  changeMode.setAttribute('title', 'Set To Night Mode');
-  changeMode.classList.replace('fa-sun', 'fa-moon');
+  changeModeElement.setAttribute('title', 'Set To Night Mode');
+  changeModeIconElement.classList.replace('fa-sun', 'fa-moon');
   navbar.classList.replace('night-mode', 'bg-light');
   navbar.classList.replace('navbar-dark', 'navbar-light');
   body.classList.remove('night-mode');
   metaTagThemeColor.setAttribute('content', '#fff');
   // day to night
 } else if (localStorage['nightMode'] === 'on') {
-  changeMode.setAttribute('title', 'Set To Day Mode');
-  changeMode.classList.replace('fa-moon', 'fa-sun');
+  changeModeElement.setAttribute('title', 'Set To Day Mode');
+  changeModeIconElement.classList.replace('fa-moon', 'fa-sun');
   navbar.classList.replace('bg-light', 'night-mode');
   navbar.classList.replace('navbar-light', 'navbar-dark');
   body.classList.add('night-mode');
@@ -25,15 +24,15 @@ if (localStorage['nightMode'] === 'off') {
 }
 
 // add event
-changeMode.addEventListener('click', function () {
+changeModeElement.addEventListener('click', function () {
   // check last class name
 
   // activation night mode
   if (navbar.classList[1] == 'navbar-light') {
     navbar.classList.replace('bg-light', 'night-mode');
     navbar.classList.replace('navbar-light', 'navbar-dark');
-    changeMode.classList.replace('fa-moon', 'fa-sun');
-    changeMode.setAttribute('title', 'Set To Day Mode');
+    changeModeIconElement.classList.replace('fa-moon', 'fa-sun');
+    changeModeElement.setAttribute('title', 'Set To Day Mode');
     navbar.classList.replace('navbar-light', 'navbar-dark');
     body.classList.add('night-mode');
     metaTagThemeColor.setAttribute('content', '#000');
@@ -46,8 +45,8 @@ changeMode.addEventListener('click', function () {
 
     navbar.classList.replace('night-mode', 'bg-light');
     navbar.classList.replace('navbar-dark', 'navbar-light');
-    changeMode.setAttribute('title', 'Set To Night Mode');
-    changeMode.classList.replace('fa-sun', 'fa-moon');
+    changeModeElement.setAttribute('title', 'Set To Night Mode');
+    changeModeIconElement.classList.replace('fa-sun', 'fa-moon');
     body.classList.remove('night-mode');
     metaTagThemeColor.setAttribute('content', '#fff');
 
@@ -84,7 +83,7 @@ $("#typewriter-opening").typer({
   startDelay: 100,
 });
 
-var navLink = document.querySelectorAll('.nav-link');
+let navLink = document.querySelectorAll('.nav-link');
 
 switch (localStorage['currentPage'].toLowerCase()) {
   case 'home':
@@ -100,4 +99,11 @@ switch (localStorage['currentPage'].toLowerCase()) {
     break;
 }
 
-localStorage.setItem('app-version', 1);
+let appVersionSelectorElement = document.querySelector('#appVersionSelector');
+appVersionSelectorElement.addEventListener('change', () => {
+  window.location.href = `${window.location.origin}/v${appVersionSelectorElement.value}`;
+});
+
+const appVersionTextViewer = document.querySelector('.app-version-viewer');
+appVersionTextViewer.innerHTML = `App Version ${localStorage.getItem('appVersion') || 1}.0`;
+localStorage.setItem('appVersion', 1);
