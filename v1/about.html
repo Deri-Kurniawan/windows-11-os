@@ -49,7 +49,9 @@
         </li>
       </ul>
       <div class="d-flex">
-        <i class="fas fa-moon fs-5 text-warning" id="change-mode" title="change mode"></i>
+        <button id="change-mode" title="change mode">
+          <i class="fas fa-moon fs-5 text-warning"></i>
+        </button>
       </div>
     </div>
   </nav>
@@ -60,7 +62,7 @@
         <div class="col text-center">
           <div class="container">
             <img class="img-thumbnail about-profile-image" src="./assets/img/deri.jpg" alt="Deri Kurniawan Person Image"
-              width="325px" style="vertical-align: middle;">
+              width="325px" style="vertical-align: middle;" tabindex="0">
           </div>
         </div>
         <div class="col-md-8">
@@ -68,52 +70,55 @@
             <div class="m-3">
               <div id="slide-about-1">
                 <div class="text-center">
-                  <span class="display-5 fw-bold" id="typewriter-name"></span>
+                  <span class="display-5 fw-bold" id="typewriter-name" aria-label="About me" tabindex="0"></span>
                 </div>
                 <hr>
-                <p class="mt-4 fw-bolder text-center" id="about-description">
+                <p class="mt-4 fw-bolder text-center" id="about-description"
+                  aria-label="Saya Deri Kurniawan, Seorang Full Stack Web Developer yang saat ini masih ber-status sebagai mahasiswa di Universitas Muhammadiyah Sukabumi Dengan Jurusan Teknik Informatika. Saya seorang yang menyukai hal baru, Saya sangat senang jika berurusan dengan teknologi, termasuk dalam merancang, membangun, mengembangkan dan mewujudkan sesuatu yang dapat bermanfaat untuk berbagai sektor. Untuk itulah alasan saya memilih jurusan Teknik Informatika."
+                  tabindex="0">
                 </p>
               </div>
               <div id="slide-about-2">
                 <div class="text-center">
-                  <span class="display-5 fw-bold text-center" id="typewriter-bio"></span>
+                  <span class="display-5 fw-bold text-center" id="typewriter-bio" aria-label="My Bio"
+                    tabindex="0"></span>
                 </div>
                 <hr>
-                <table class="m-0 m-auto">
+                <table class="m-0 m-auto" tabindex="0">
                   <tr>
                     <th class="col-6">Nama</th>
                     <td> : </td>
-                    <td>Deri Kurniawan</td>
+                    <td aria-label="deri kurniawan.">Deri Kurniawan</td>
                   </tr>
                   <tr>
                     <th>Jenis Kelamin</th>
                     <td> : </th>
-                    <td>Laki - Laki</td>
+                    <td aria-label="laki laki.">Laki - Laki</td>
                   </tr>
                   <tr>
                     <th>Tempat Tanggal Lahir</th>
                     <td> : </th>
-                    <td>Sukabumi, 5 juni 2021</td>
+                    <td aria-label="sukabumi, 5 juni 2001.">Sukabumi, 5 juni 2001</td>
                   </tr>
                   <tr>
                     <th>Kampus</th>
                     <td> : </th>
-                    <td>Universitas Muhammadiyah Sukabumi</td>
+                    <td aria-label="universitas muhammadiyah sukabumi.">Universitas Muhammadiyah Sukabumi</td>
                   </tr>
                   <tr>
                     <th>Fakultas</th>
                     <td> : </th>
-                    <td>Sains & Teknologi</td>
+                    <td aria-label="sains dan teknologi.">Sains & Teknologi</td>
                   </tr>
                   <tr>
                     <th>Prodi</th>
                     <td> : </th>
-                    <td>Teknik Informatika</td>
+                    <td aria-label="teknik informatika.">Teknik Informatika</td>
                   </tr>
                   <tr>
                     <th>Perkiraan Lulus</th>
                     <td> : </th>
-                    <td>2023</td>
+                    <td aria-label="2023.">2023</td>
                   </tr>
                 </table>
                 <hr>
@@ -121,7 +126,7 @@
                 <div class="d-flex justify-content-center">
                   <div class="row">
                     <div class="col">
-                      <a href="https://github.com/Deri-Kurniawan" target="_blank" title="Github | Deri Kurniwan">
+                      <a href="https://github.com/Deri-Kurniawan" target="_blank" title="Github | Deri Kurniawan">
                         <i class="fab fa-github fa-2x"></i>
                       </a>
                     </div>
@@ -146,16 +151,17 @@
               </div>
               <div id="slide-about-3">
                 <div class="text-center">
-                  <span class="display-5 fw-bold" id="typewriter-ability"></span>
+                  <span class="display-5 fw-bold" id="typewriter-ability" aria-label="my ability" tabindex="0"></span>
                 </div>
                 <hr>
-                <table class="col-12 m-2">
+                <table class="col-12 m-2" tabindex="0">
                   <tr>
                     <th class="col-4">HTML</th>
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -165,7 +171,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -175,7 +182,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -185,7 +193,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -195,7 +204,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -205,7 +215,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -215,7 +226,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -225,7 +237,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -235,7 +248,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -245,7 +259,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -255,7 +270,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>
@@ -265,7 +281,8 @@
                     <td>
                       <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                          role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">
+                          role="progressbar" style="width: 1%;" aria-label="1%." aria-valuenow="1" aria-valuemin="0"
+                          aria-valuemax="100">
                           1%</div>
                       </div>
                     </td>

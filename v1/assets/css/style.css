@@ -10,7 +10,7 @@
 }
 
 body {
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 .night-mode {
@@ -32,6 +32,10 @@ body {
   -ms-transition: .2s ease-out;
   -o-transition: .2s ease-out;
   z-index: 1;
+}
+
+.navbar-brand:hover {
+  color: gold !important;
 }
 
 .nav-scroll {
@@ -66,14 +70,15 @@ body {
 }
 
 #change-mode {
-  cursor: pointer;
-  transition: .2s all;
-  -webkit-transition: .2s all;
-  -moz-transition: .2s all;
-  -ms-transition: .2s all;
-  -o-transition: .2s all;
-  animation: change-mode 5s linear infinite;
-  -webkit-animation: change-mode 5s linear infinite;
+  background: none;
+  border: none;
+  transition: .15s all;
+  -webkit-transition: .15s all;
+  -moz-transition: .15s all;
+  -ms-transition: .15s all;
+  -o-transition: .15s all;
+  animation: change-mode 2s linear infinite;
+  -webkit-animation: change-mode 2s linear infinite;
 }
 
 @keyframes change-mode {
@@ -101,8 +106,8 @@ body {
   color: white !important;
   white-space: nowrap;
   margin: 0 auto;
-  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-  -webkit-animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+  animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+  -webkit-animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
