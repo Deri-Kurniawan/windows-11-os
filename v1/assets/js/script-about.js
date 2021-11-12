@@ -52,9 +52,6 @@ const abilitiesData = [
   },
 ];
 
-abilitiesElement.innerHTML = 'I feel, I don't know anything so far';
-
-/*
 abilitiesData.forEach((ability) => {
   abilitiesElement.innerHTML += `
   <tr>
@@ -70,7 +67,6 @@ abilitiesData.forEach((ability) => {
   </tr>
   `;
 });
-*/
 
 $("#typewriter-name").typer({
   strings: [
