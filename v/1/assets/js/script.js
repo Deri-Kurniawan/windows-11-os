@@ -26,7 +26,6 @@ if (localStorage['nightMode'] === 'off') {
 // add event
 changeModeElement.addEventListener('click', function () {
   // check last class name
-
   // activation night mode
   if (navbar.classList[1] == 'navbar-light') {
     navbar.classList.replace('bg-light', 'night-mode');
@@ -42,7 +41,6 @@ changeModeElement.addEventListener('click', function () {
 
     // in-activated night mode
   } else if (navbar.classList[1] == 'navbar-dark') {
-
     navbar.classList.replace('night-mode', 'bg-light');
     navbar.classList.replace('navbar-dark', 'navbar-light');
     changeModeElement.setAttribute('title', 'Set To Night Mode');
@@ -57,7 +55,6 @@ changeModeElement.addEventListener('click', function () {
 
 // navigation bar
 window.addEventListener('scroll', function () {
-
   if (window.pageYOffset >= 110) {
     navbar.classList.add('nav-scroll');
   } else if (window.pageYOffset <= 0) {
@@ -67,7 +64,6 @@ window.addEventListener('scroll', function () {
 
 // custom typer
 $("#typewriter-opening").typer({
-
   strings: [
     "Hallo !",
     "Selamat Datang!",

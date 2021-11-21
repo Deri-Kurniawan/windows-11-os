@@ -80,8 +80,8 @@ $("#typewriter-name").typer({
   autoStart: true,
   startDelay: 100,
 });
-$("#typewriter-bio").typer({
 
+$("#typewriter-bio").typer({
   strings: [
     "My Bio",
   ],
@@ -93,8 +93,8 @@ $("#typewriter-bio").typer({
   autoStart: true,
   startDelay: 100,
 });
-$("#typewriter-ability").typer({
 
+$("#typewriter-ability").typer({
   strings: [
     "My Ability",
   ],
