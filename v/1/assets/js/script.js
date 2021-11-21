@@ -101,7 +101,7 @@ switch (localStorage['currentPage'].toLowerCase()) {
 
 let appVersionSelectorElement = document.querySelector('#appVersionSelector');
 appVersionSelectorElement.addEventListener('change', () => {
-  window.location.href = `${window.location.origin}/v${appVersionSelectorElement.value}`;
+  window.location.href = `${window.location.origin}/v/${appVersionSelectorElement.value}/`;
 });
 
 const appVersionTextViewer = document.querySelector('.app-version-viewer');
