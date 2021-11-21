@@ -8,5 +8,5 @@ if (getRedirectOutLink !== null && getRedirectOutLink !== '') {
 } else if (getRedirectInLink !== null && getRedirectInLink !== '') {
   location.href = `${window.location.origin}/${getRedirectInLink}`;
 } else {
-  window.location.href = `${window.location.origin}/v${appVersion}`;
+  window.location.href = `${window.location.origin}/v/${appVersion}/`;
 }
