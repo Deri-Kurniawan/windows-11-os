@@ -99,7 +99,7 @@ switch (localStorage['currentPage'].toLowerCase()) {
     break;
 }
 
-let appVersionSelectorElement = document.querySelector('#appVersionSelector');
+const appVersionSelectorElement = document.querySelector('#appVersionSelector');
 appVersionSelectorElement.addEventListener('change', () => {
   window.location.href = `${window.location.origin}/v/${appVersionSelectorElement.value}/`;
 });
