@@ -11,49 +11,25 @@ const abilitiesElement = document.querySelector('#abilities-list');
 
 const abilitiesData = [
   {
-    name: "HTML",
+    name: "HTML, PHP",
     level: "Advanced",
   },
   {
-    name: "JavaScript",
-    level: "Intermediate",
-  },
-  {
-    name: "PHP",
-    level: "Advanced",
-  },
-  {
-    name: "MySQL",
+    name: "JavaScript, MySQL, PostgreSQL, CodeIgniter",
     level: "Upper Intermediate",
   },
   {
-    name: "PostgreSQL",
+    name: "CSS, NodeJs, ExpressJS, Bootstrap",
     level: "Intermediate",
   },
   {
-    name: "Python",
+    name: "C++, C#, SASS, Python, Laravel, HapiJS, Flutter, Unity3D",
     level: "Elementary",
   },
   {
-    name: "CodeIgniter",
-    level: "Upper Intermediate",
-  },
-  {
-    name: "Laravel",
-    level: "Elementary",
-  },
-  {
-    name: "Express JS",
-    level: "Intermediate",
-  },
-  {
-    name: "Hapi JS",
-    level: "Elementary",
-  },
-  {
-    name: "Flutter",
-    level: "Elementary",
-  },
+    name: "GoLang, Java, Kotlin, Adonis",
+    level: "Beginner",
+  }
 ];
 
 abilitiesElement.innerHTML += `
@@ -65,7 +41,7 @@ abilitiesElement.innerHTML += `
 
 abilitiesData.forEach((ability) => {
   abilitiesElement.innerHTML += `
-  <tr>
+  <tr class="bg-light" aria-label="keahlian ${ability.name} memiliki level ${ability.level}" tabindex="0">
     <td>${ability.name}</td>
     <td>
       ${ability.level}
