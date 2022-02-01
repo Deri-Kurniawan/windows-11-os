@@ -8,6 +8,26 @@
   margin-bottom: 100px;
 }
 
+.timeline:hover .timeline-content {
+  /*background-color: #bfbfbf;
+  */
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.timeline:hover .timeline-icon {
+  /*background-color: #bfbfbf;
+  */
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+}
+
 .main-timeline {
   position: relative;
   transition: all 0.4s ease 0s;

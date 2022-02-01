@@ -12,57 +12,63 @@ const abilitiesElement = document.querySelector('#abilities-list');
 const abilitiesData = [
   {
     name: "HTML",
-    progress: 85,
+    level: "Advanced",
   },
   {
     name: "JavaScript",
-    progress: 60,
+    level: "Intermediate",
   },
   {
     name: "PHP",
-    progress: 80,
+    level: "Advanced",
   },
   {
     name: "MySQL",
-    progress: 75,
+    level: "Upper Intermediate",
+  },
+  {
+    name: "PostgreSQL",
+    level: "Intermediate",
   },
   {
     name: "Python",
-    progress: 35,
+    level: "Elementary",
   },
   {
     name: "CodeIgniter",
-    progress: 75,
+    level: "Upper Intermediate",
   },
   {
     name: "Laravel",
-    progress: 30,
+    level: "Elementary",
   },
   {
     name: "Express JS",
-    progress: 35,
+    level: "Intermediate",
   },
   {
     name: "Hapi JS",
-    progress: 35,
+    level: "Elementary",
   },
   {
     name: "Flutter",
-    progress: 35,
+    level: "Elementary",
   },
 ];
+
+abilitiesElement.innerHTML += `
+<tr class="bg-danger text-light">
+  <th>Skill</th>
+  <th>Level</th>
+</tr>
+`;
 
 abilitiesData.forEach((ability) => {
   abilitiesElement.innerHTML += `
   <tr>
-    <th class="col-4">${ability.name}</th>
+    <td>${ability.name}</td>
     <td>
-      <div class="progress">
-        <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-          role="progressbar" style="width: ${ability.progress}%;" aria-label="${ability.progress}%." aria-valuenow="${ability.progress}" aria-valuemin="0"
-          aria-valuemax="100">
-          ${ability.progress}%</div>
-      </div>
+      ${ability.level}
     </td>
   </tr>
   `;

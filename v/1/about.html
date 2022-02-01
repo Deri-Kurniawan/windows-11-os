@@ -1,3 +1,35 @@
+<!--
+Ngintip yaa!! :D
+
+77 68 61 74 20 64 6f 20 79 6f 75 20 77 61 6e 74 20 74 6f 20 64 6f 20 77 69 74 68 20 6d 79 20 63 6f 64 65 20 3a 44 0a 62 79 20 74 68 65 20 77 61 79 2c 20 79 6f 75 20 61 72 65 20 73 6f 20 67 65 6e 69 75 73 2e
+-->
+
+<!-----------------This-Page-Developed-By--------------------|
+|     _____          ___           ___                       |
+|    /  /::\        /  /\         /  /\        ___           |
+|   /  /:/\:\      /  /:/_       /  /::\      /  /\          |
+|  /  /:/  \:\    /  /:/ /\     /  /:/\:\    /  /:/          |
+| /__/:/ \__\:|  /  /:/ /:/_   /  /:/~/:/   /__/::\          |
+| \  \:\ /  /:/ /__/:/ /:/ /\ /__/:/ /:/___ \__\/\:\__       |
+|  \  \:\  /:/  \  \:\/:/ /:/ \  \:\/:::::/    \  \:\/\      |
+|   \  \:\/:/    \  \::/ /:/   \  \::/~~~~      \__\::/      |
+|    \  \::/      \  \:\/:/     \  \:\          /__/:/       |
+|     \__\/        \  \::/       \  \:\         \__\/        |
+|                   \__\/         \__\/                      |
+|------------------------------------------------------------------------------------------------------------------------------|
+|      ___           ___           ___           ___                       ___           ___           ___           ___       |
+|     /__/|         /__/\         /  /\         /__/\        ___          /  /\         /__/\         /  /\         /__/\      |
+|    |  |:|         \  \:\       /  /::\        \  \:\      /  /\        /  /::\       _\_ \:\       /  /::\        \  \:\     |
+|    |  |:|          \  \:\     /  /:/\:\        \  \:\    /  /:/       /  /:/\:\     /__/\ \:\     /  /:/\:\        \  \:\    |
+|  __|  |:|      ___  \  \:\   /  /:/~/:/    _____\__\:\  /__/::\      /  /:/~/::\   _\_ \:\ \:\   /  /:/~/::\   _____\__\:\   |
+| /__/\_|:|____ /__/\  \__\:\ /__/:/ /:/___ /__/::::::::\ \__\/\:\__  /__/:/ /:/\:\ /__/\ \:\ \:\ /__/:/ /:/\:\ /__/::::::::\  |
+| \  \:\/:::::/ \  \:\ /  /:/ \  \:\/:::::/ \  \:\~~\~~\/    \  \:\/\ \  \:\/:/__\/ \  \:\ \:\/:/ \  \:\/:/__\/ \  \:\~~\~~\/  |
+|  \  \::/~~~~   \  \:\  /:/   \  \::/~~~~   \  \:\  ~~~      \__\::/  \  \::/       \  \:\ \::/   \  \::/       \  \:\  ~~~   |
+|   \  \:\        \  \:\/:/     \  \:\        \  \:\          /__/:/    \  \:\        \  \:\/:/     \  \:\        \  \:\       |
+|    \  \:\        \  \::/       \  \:\        \  \:\         \__\/      \  \:\        \  \::/       \  \:\        \  \:\      |
+|     \__\/         \__\/         \__\/         \__\/                     \__\/         \__\/         \__\/         \__\/      |
+|------------------------------------------------------------------------------------------------------------------------------>
+
 <!doctype html>
 <html lang="en">
 
@@ -9,6 +41,7 @@
   <meta name="keywords" content="Deri Kurniawan,Portfolio Deri Kurniawan,">
   <meta name="theme-color" content="#fff">
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
@@ -63,7 +96,7 @@
         <div class="col text-center">
           <div class="container">
             <img class="img-thumbnail about-profile-image" src="./assets/img/deri.jpg" alt="Deri Kurniawan Person Image"
-              width="325px" style="vertical-align: middle;" tabindex="0">
+              width="325px" style="vertical-align: middle;" tabindex="0" data-aos="slide-up">
           </div>
         </div>
         <div class="col-xl-8">
@@ -161,7 +194,8 @@
                   <span class="display-5 fw-bold" id="typewriter-ability" aria-label="my ability" tabindex="0"></span>
                 </div>
                 <hr>
-                <table class="col-12 m-2" tabindex="0" id="abilities-list"></table>
+                <table class="col-12 table tale-hover table-bordered text-center" tabindex="0" id="abilities-list">
+                </table>
               </div>
               <button class="btn btn-outline-danger float-end" id="about-next-btn" title="next">
                 <i class="fas fa-arrow-right"></i>
@@ -173,7 +207,7 @@
     </div>
   </div>
 
-  <div class="box-app-version">
+  <div class="box-app-version" data-aos="fade-up" data-aos-offset="-100">
     <div>
       <label for="appVersionSelector">Select Version : </label>
       <select class="text-center" id="appVersionSelector">
@@ -193,6 +227,10 @@
   <script src="./assets/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
   </script>
 </body>
 
