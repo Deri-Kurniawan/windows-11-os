@@ -94,12 +94,3 @@ switch (localStorage['currentPage'].toLowerCase()) {
   default:
     break;
 }
-
-const appVersionSelectorElement = document.querySelector('#appVersionSelector');
-appVersionSelectorElement.addEventListener('change', () => {
-  window.location.href = `${window.location.origin}/v/${appVersionSelectorElement.value}/`;
-});
-
-const appVersionTextViewer = document.querySelector('.app-version-viewer');
-appVersionTextViewer.innerHTML = `App Version ${localStorage.getItem('appVersion') || 1}.0`;
-localStorage.setItem('appVersion', 1);
