@@ -19,15 +19,15 @@ const abilitiesData = [
     level: "Upper Intermediate",
   },
   {
-    name: "CSS, NodeJs, ExpressJS, Bootstrap",
+    name: "CSS, NodeJS, ExpressJS, Bootstrap",
     level: "Intermediate",
   },
   {
-    name: "C++, C#, SASS, Python, Laravel, HapiJS, Flutter, Unity3D",
+    name: "C++, C#, SASS, Python, Laravel, HapiJS, Flutter, Unity3D, Arduino",
     level: "Elementary",
   },
   {
-    name: "GoLang, Java, Kotlin, Adonis",
+    name: "GoLang, Java, Kotlin, Adonis, ReactJS, VueJS, NestJS",
     level: "Beginner",
   }
 ];
