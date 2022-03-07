@@ -16,3 +16,25 @@ body {
   -ms-border-radius: 30px 0px 30px;
   -o-border-radius: 30px 0px 30px;
 }
+
+#slide-about-1,
+#slide-about-2,
+#slide-about-3 {
+  transition: .1s all;
+  -webkit-transition: .1s all;
+  -moz-transition: .1s all;
+  -ms-transition: .1s all;
+  -o-transition: .1s all;
+}
+
+#about-prev-btn {
+  position: fixed;
+  left: 5%;
+  bottom: 5%;
+}
+
+#about-next-btn {
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+}
