@@ -5,7 +5,7 @@ let aboutDescriptionElement = document.querySelector('#about-description');
 let i = 0;
 let txt =
   "Saya Deri Kurniawan, Seorang Full Stack Web Developer yang saat ini masih ber-status sebagai mahasiswa di Universitas Muhammadiyah Sukabumi Dengan Jurusan Teknik Informatika. Saya seorang yang menyukai hal baru, Saya sangat senang jika berurusan dengan teknologi, termasuk dalam merancang, membangun, mengembangkan dan mewujudkan sesuatu yang dapat bermanfaat untuk berbagai sektor. Untuk itulah alasan saya memilih jurusan Teknik Informatika.";
-let speed = 10;
+let speed = 15;
 
 const abilitiesElement = document.querySelector('#abilities-list');
 
@@ -50,87 +50,75 @@ abilitiesData.forEach((ability) => {
   `;
 });
 
-$("#typewriter-name").typer({
-  strings: [
-    "About Me",
-  ],
-  typeSpeed: 100,
-  backspaceSpeed: 20,
-  backspaceDelay: 800,
-  repeatDelay: 500,
-  repeat: true,
-  autoStart: true,
-  startDelay: 100,
-});
-
-$("#typewriter-bio").typer({
-  strings: [
-    "My Bio",
-  ],
-  typeSpeed: 100,
-  backspaceSpeed: 20,
-  backspaceDelay: 800,
-  repeatDelay: 500,
-  repeat: true,
-  autoStart: true,
-  startDelay: 100,
-});
-
-$("#typewriter-ability").typer({
-  strings: [
-    "My Ability",
-  ],
-  typeSpeed: 100,
-  backspaceSpeed: 20,
-  backspaceDelay: 800,
-  repeatDelay: 500,
-  repeat: true,
-  autoStart: true,
-  startDelay: 100,
-});
-
-typeWriter();
-
-function typeWriter() {
+const aboutMeTypeWriter = () => {
   if (i < txt.length) {
     aboutDescriptionElement.innerHTML += txt.charAt(i);
     i++;
-    setTimeout(typeWriter, speed);
+    setTimeout(aboutMeTypeWriter, speed);
   }
+  // aboutDescriptionElement.innerHTML = txt;
 }
 
-let clickCountNextAboutBtn = 1;
+aboutMeTypeWriter();
 
-if (clickCountNextAboutBtn == 1) {
-  $('#slide-about-1').show();
-  $('#slide-about-2').hide();
-  $('#slide-about-3').hide();
-}
-
-$('#about-next-btn').on('click', function () {
-  clickCountNextAboutBtn += 1;
-  if (clickCountNextAboutBtn > 3) {
-    clickCountNextAboutBtn = 1;
-  }
-
-  switch (clickCountNextAboutBtn) {
+const slideRule = (position) => {
+  switch (position) {
     case 1:
       $('#slide-about-1').show();
       $('#slide-about-2').hide();
       $('#slide-about-3').hide();
+      localStorage.setItem('lastSlide', 1);
+
       break;
     case 2:
       $('#slide-about-1').hide();
       $('#slide-about-2').show();
       $('#slide-about-3').hide();
+      localStorage.setItem('lastSlide', 2);
+
       break;
     case 3:
       $('#slide-about-1').hide();
       $('#slide-about-2').hide();
       $('#slide-about-3').show();
-      break;
+      localStorage.setItem('lastSlide', 3);
 
+      break;
     default:
       break;
   }
+}
+
+let slidePosition = localStorage.getItem('lastSlide') ?? 1;
+
+$('#slide-about-'+slidePosition).show();
+
+$('#about-prev-btn').on('click', () => {
+  slidePosition -= 1;
+  if (slidePosition < 1) {
+    slidePosition = 3;
+  }
+
+  slideRule(slidePosition);
 });
+
+$('#about-next-btn').on('click', () => {
+  slidePosition += 1;
+  if (slidePosition > 3) {
+    slidePosition = 1;
+  }
+
+  slideRule(slidePosition);
+});
+
+$(document).on('keyup', (e) => {
+  const rightKey = 39;
+  const leftKey = 37;
+  if(e.keyCode === rightKey) {
+    $('#about-next-btn').click();
+  }
+
+  if(e.keyCode === leftKey) {
+    $('#about-prev-btn').click();
+  }
+})
