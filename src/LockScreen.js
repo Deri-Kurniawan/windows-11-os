@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import BatteryIcon from "./comps/BatteryIcon";
 import { TbWifi } from "react-icons/tb";
 import { VscEye } from "react-icons/vsc";
+import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
 import { Avatar } from "flowbite-react";
 import { setIsLocked } from "./redux/feat/lockScreenSlice";
 import ASSETS from "./assets";
@@ -12,6 +13,7 @@ const LockScreen = () => {
   const wallpaper = useSelector((state) => state.lockScreen.wallpaper);
   const [didUnlock, setDidUnlock] = useState(false);
   const [showPIN, setShowPIN] = useState(false);
+  const [wrongPinCredential, setWrongPinCredential] = useState(false);
 
   const [hours, setHours] = useState(moment().format("HH"));
   const [minutes, setMinutes] = useState(moment().format("mm"));
@@ -29,7 +31,9 @@ const LockScreen = () => {
         setShowPIN(false);
         setDidUnlock(false);
         dispatch(setIsLocked(false));
+        return;
       }
+      setWrongPinCredential(true);
     }
   };
 
@@ -101,10 +105,10 @@ const LockScreen = () => {
           </div>
           <div className="absolute bottom-10 right-10">
             <div className="flex justify-center items-center">
-              <div className="mx-1">
+              <div className="mx-2">
                 <TbWifi size={30} />
               </div>
-              <div className="mx-1">
+              <div className="mx-2">
                 <BatteryIcon size={30} />
               </div>
             </div>
@@ -121,25 +125,54 @@ const LockScreen = () => {
               size="xl"
             />
             <h1 className="text-2xl font-semibold mt-4">Deri Kurniawan</h1>
-            <div className="mt-7 bg-gray-800 bg-opacity-70 backdrop-blur-xl">
-              <input
-                className="w-[50vw] h-[5vh] md:w-[23vw] pr-[1.85em] bg-transparent placeholder-white px-2 tracking-widest"
-                type={showPIN ? "text" : "password"}
-                onChange={onPinChangeHandle}
-                placeholder="PIN"
-                maxLength={6}
-              />
-              <div className="absolute top-[2.5px] right-[2px] p-1">
-                <button onClick={onClickShowPINHandle}>
-                  <VscEye size={18} />
+            {wrongPinCredential ? (
+              <>
+                <div className="mt-7">
+                  <div className="mt-4">The PIN is incorrect. Try again.</div>
+                </div>
+                <div
+                  className="mt-7 bg-white bg-opacity-30 px-14 py-2 text-center rounded-md ring-2 ring-white border-[1px] backdrop-blur-xl border-black cursor-pointer active:bg-opacity-20"
+                  onClick={() => setWrongPinCredential(false)}
+                >
+                  <span className="font-semibold">OK</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="mt-7 bg-gray-800 bg-opacity-70 backdrop-blur-xl rounded-sm">
+                  <input
+                    className="w-[50vw] h-[5vh] md:w-[23vw] pr-[1.85em] bg-transparent placeholder-white px-2 tracking-widest rounded-sm"
+                    type={showPIN ? "text" : "password"}
+                    onChange={onPinChangeHandle}
+                    placeholder="PIN"
+                    maxLength={6}
+                  />
+                  <div className="absolute top-[2.5px] right-[2px] p-1">
+                    <button onClick={onClickShowPINHandle}>
+                      <VscEye size={18} />
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="mt-4 hover:text-gray-300 cursor-pointer"
+                  onClick={() => alert("Your PIN is 123456")}
+                >
+                  I forgot my PIN
+                </div>
+              </>
+            )}
+            <div className="absolute bottom-10 right-10">
+              <div className="flex justify-center items-center">
+                <button className="mx-2" title="Internet">
+                  <TbWifi size={30} />
+                </button>
+                <button className="mx-2" title="Accessibility">
+                  <IoAccessibilityOutline size={24} />
+                </button>
+                <button className="mx-2" title="Power">
+                  <IoPower size={24} />
                 </button>
               </div>
-            </div>
-            <div
-              className="mt-4 hover:text-gray-300 cursor-pointer"
-              onClick={() => alert("Your PIN is 123456")}
-            >
-              I forgot my PIN
             </div>
           </div>
         </div>
