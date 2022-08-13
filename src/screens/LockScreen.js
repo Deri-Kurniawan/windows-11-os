@@ -1,12 +1,12 @@
 import moment from "moment/moment";
 import React, { Fragment, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import BatteryIcon from "./comps/BatteryIcon";
+import BatteryIcon from "../comps/BatteryIcon";
 import { TbWifi } from "react-icons/tb";
 import { VscEye } from "react-icons/vsc";
 import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
-import { setIsLocked } from "./redux/feat/lockScreenSlice";
-import ASSETS from "./assets";
+import { setIsLocked } from "../redux/feat/lockScreenSlice";
+import ASSETS from "../assets";
 
 const CONFIGS = {
   correctPIN: "123123",
@@ -94,7 +94,7 @@ const LockScreen = () => {
     return () => window.removeEventListener("keydown", eventHandle);
   };
 
-  const _autoHidePIN = (showPINText) => {
+  const _autoHidePINText = (showPINText) => {
     if (showPINText === true) {
       const timeout = setTimeout(() => {
         setShowPINText(false);
@@ -110,7 +110,7 @@ const LockScreen = () => {
   });
 
   useEffect(() => {
-    _autoHidePIN(showPINText);
+    _autoHidePINText(showPINText);
   }, [showPINText]);
 
   return (
