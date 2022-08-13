@@ -94,11 +94,11 @@ const LockScreen = () => {
     return () => window.removeEventListener("keydown", eventHandle);
   };
 
-  const _autoHidePINText = (showPINText) => {
+  const _autoHidePINText = (showPINText, miliseconds) => {
     if (showPINText === true) {
       const timeout = setTimeout(() => {
         setShowPINText(false);
-      }, CONFIGS.hidePINAutoTimeout);
+      }, miliseconds);
 
       return () => clearTimeout(timeout);
     }
@@ -107,10 +107,10 @@ const LockScreen = () => {
   useEffect(() => {
     _updateTimePeriodically();
     _keydownListenerPeriodically();
-  });
+  }, []);
 
   useEffect(() => {
-    _autoHidePINText(showPINText);
+    _autoHidePINText(showPINText, CONFIGS.hidePINAutoTimeout);
   }, [showPINText]);
 
   return (

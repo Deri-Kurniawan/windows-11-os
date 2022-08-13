@@ -8,7 +8,7 @@ import {
 } from "./redux/feat/desktopSlice";
 
 function App() {
-  const isLockedScreen = useSelector((state) => state.lockScreen.isLocked);
+  const isScreenLocked = useSelector((state) => state.lockScreen.isLocked);
   const dispatch = useDispatch();
 
   const _batteryDetector = () => {
@@ -34,7 +34,7 @@ function App() {
     _batteryDetector();
   });
 
-  return isLockedScreen ? <LockScreen /> : <DesktopScreen />;
+  return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
 }
 
 export default App;
