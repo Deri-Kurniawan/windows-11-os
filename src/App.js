@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import LockScreen from "./LockScreen";
+import LockScreen from "./screens/LockScreen";
+import DesktopScreen from "./screens/DesktopScreen";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setBatteryIsCharging,
@@ -7,10 +8,10 @@ import {
 } from "./redux/feat/desktopSlice";
 
 function App() {
+  const isScreenLocked = useSelector((state) => state.lockScreen.isLocked);
   const dispatch = useDispatch();
-  const isLockedScreen = useSelector((state) => state.lockScreen.isLocked);
 
-  useEffect(() => {
+  const _batteryDetector = () => {
     navigator.getBattery().then((battery) => {
       dispatch(setBatteryIsCharging(battery.charging));
       dispatch(setBatteryLevel(battery.level));
@@ -27,19 +28,13 @@ function App() {
         battery.disconnect();
       };
     });
+  };
+
+  useEffect(() => {
+    _batteryDetector();
   });
 
-  return (
-    <>
-      {isLockedScreen ? (
-        <LockScreen />
-      ) : (
-        <div>
-          <h1>Desktop Screen</h1>
-        </div>
-      )}
-    </>
-  );
+  return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
 }
 
 export default App;
