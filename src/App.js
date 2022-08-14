@@ -11,28 +11,29 @@ function App() {
   const isScreenLocked = useSelector((state) => state.lockScreen.isLocked);
   const dispatch = useDispatch();
 
-  const _batteryDetector = () => {
-    navigator.getBattery().then((battery) => {
-      dispatch(setBatteryIsCharging(battery.charging));
-      dispatch(setBatteryLevel(battery.level));
-
-      battery.addEventListener("chargingchange", () => {
+  useEffect(() => {
+    // Get, Set battery level and charging status
+    const interval = setInterval(() => {
+      navigator.getBattery().then((battery) => {
         dispatch(setBatteryIsCharging(battery.charging));
         dispatch(setBatteryLevel(battery.level));
-      });
 
-      return () => {
-        battery.removeEventListener("chargingchange", () => {
+        battery.addEventListener("chargingchange", () => {
           dispatch(setBatteryIsCharging(battery.charging));
+          dispatch(setBatteryLevel(battery.level));
         });
-        battery.disconnect();
-      };
-    });
-  };
 
-  useEffect(() => {
-    _batteryDetector();
-  });
+        return () => {
+          battery.removeEventListener("chargingchange", () => {
+            dispatch(setBatteryIsCharging(battery.charging));
+          });
+          battery.disconnect();
+        };
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [dispatch]);
 
   return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
 }

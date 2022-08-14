@@ -6,11 +6,9 @@ import { TbWifi } from "react-icons/tb";
 import { VscEye } from "react-icons/vsc";
 import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
 import { setIsLocked } from "../redux/feat/lockScreenSlice";
-import ASSETS from "../assets";
 
 const CONFIGS = {
-  correctPIN: "123123",
-  correctPINLoadingTimeout: 3000,
+  validtPINLoadingTimeout: 3000,
   hidePINAutoTimeout: 3000,
   timeFormat: {
     hours: "HH",
@@ -21,8 +19,10 @@ const CONFIGS = {
 
 const LockScreen = () => {
   const wallpaper = useSelector((state) => state.lockScreen.wallpaper);
-  const [screenDidUnlock, setScreenDidUnlock] = useState(false);
+  const profileImage = useSelector((state) => state.lockScreen.profileImage);
+  const validPIN = useSelector((state) => state.lockScreen.validPIN);
   const [loginIsSuccess, setLoginIsSuccess] = useState(false);
+  const [screenDidUnlock, setScreenDidUnlock] = useState(false);
   const [showPINText, setShowPINText] = useState(false);
   const [PINAttemptIsWrong, setPINAttemptIsWrong] = useState(false);
 
@@ -41,7 +41,7 @@ const LockScreen = () => {
     const PIN = target.value;
 
     if (PIN.length >= 6) {
-      if (PIN === CONFIGS.correctPIN) {
+      if (PIN === validPIN) {
         setLoginIsSuccess(true);
 
         setTimeout(() => {
@@ -49,7 +49,7 @@ const LockScreen = () => {
           setScreenDidUnlock(false);
           dispatch(setIsLocked(false));
           setLoginIsSuccess(false);
-        }, CONFIGS.correctPINLoadingTimeout);
+        }, CONFIGS.validtPINLoadingTimeout);
         return;
       }
       setPINAttemptIsWrong(true);
@@ -60,10 +60,9 @@ const LockScreen = () => {
     setShowPINText(!showPINText);
   };
 
-  const _updateTimePeriodically = () => {
-    const { hours, minutes, dayDateMonth } = CONFIGS.timeFormat;
-
-    const interval = setInterval(() => {
+  useEffect(() => {
+    const updateTimeInterval = setInterval(() => {
+      const { hours, minutes, dayDateMonth } = CONFIGS.timeFormat;
       const current = {
         hours: moment().format(hours),
         minutes: moment().format(minutes),
@@ -75,11 +74,7 @@ const LockScreen = () => {
       setDayDateMonth(current.dayDateMonth);
     }, 1000);
 
-    return () => clearInterval(interval);
-  };
-
-  const _keydownListenerPeriodically = () => {
-    const eventHandle = (e) => {
+    const keydownListenerHandle = (e) => {
       if (e.code === "Space" || e.code === "Enter") {
         setScreenDidUnlock(true);
       }
@@ -90,27 +85,22 @@ const LockScreen = () => {
       }
     };
 
-    window.addEventListener("keydown", eventHandle);
-    return () => window.removeEventListener("keydown", eventHandle);
-  };
+    window.addEventListener("keydown", keydownListenerHandle);
 
-  const _autoHidePINText = (showPINText, miliseconds) => {
-    if (showPINText === true) {
-      const timeout = setTimeout(() => {
-        setShowPINText(false);
-      }, miliseconds);
-
-      return () => clearTimeout(timeout);
-    }
-  };
-
-  useEffect(() => {
-    _updateTimePeriodically();
-    _keydownListenerPeriodically();
+    return () => {
+      clearInterval(updateTimeInterval);
+      window.removeEventListener("keydown", keydownListenerHandle);
+    };
   }, []);
 
   useEffect(() => {
-    _autoHidePINText(showPINText, CONFIGS.hidePINAutoTimeout);
+    if (showPINText === true) {
+      const timeout = setTimeout(() => {
+        setShowPINText(false);
+      }, CONFIGS.hidePINAutoTimeout);
+
+      return () => clearTimeout(timeout);
+    }
   }, [showPINText]);
 
   return (
@@ -119,14 +109,14 @@ const LockScreen = () => {
         style={{
           backgroundImage: `url('${wallpaper}')`,
         }}
-        className="bg-cover bg-no-repeat text-white"
+        className="text-white bg-no-repeat bg-cover"
         onClick={() => setScreenDidUnlock(true)}
       >
         <div className="w-screen h-screen">
           <div>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col items-center justify-center">
               <div>
-                <div className="mt-16 text-8xl font-semibold flex items-center">
+                <div className="flex items-center mt-16 font-semibold text-8xl">
                   <span>{hours}</span>
                   <span>&#58;</span>
                   <span>{minutes}</span>
@@ -138,7 +128,7 @@ const LockScreen = () => {
             </div>
           </div>
           <div className="absolute bottom-10 right-10">
-            <div className="flex justify-center items-center">
+            <div className="flex items-center justify-center">
               <div className="mx-2">
                 <TbWifi size={30} />
               </div>
@@ -151,17 +141,17 @@ const LockScreen = () => {
       </div>
 
       {screenDidUnlock && (
-        <div className="absolute top-0 right-0 bottom-0 left-0 w-screen h-screen backdrop-blur-xl text-white">
-          <div className="flex flex-col justify-center items-center mt-28">
+        <div className="absolute top-0 bottom-0 left-0 right-0 w-screen h-screen text-white backdrop-blur-xl">
+          <div className="flex flex-col items-center justify-center mt-28">
             <img
-              className="rounded-full w-48 h-48"
-              src={ASSETS.images.profile.require}
-              alt=""
+              className="w-48 h-48 rounded-full"
+              src={profileImage}
+              alt="User Profile"
             />
-            <h1 className="text-2xl font-semibold mt-4">Deri Kurniawan</h1>
+            <h1 className="mt-4 text-2xl font-semibold">Deri Kurniawan</h1>
             {loginIsSuccess ? (
-              <div className="mt-3 flex flex-col justify-center items-center">
-                <div className="my-3 w-16 h-16 border-white border-t-4 border-r-4 border-dotted rounded-full bg-transparent animate-spin"></div>
+              <div className="flex flex-col items-center justify-center mt-3">
+                <div className="w-16 h-16 my-3 bg-transparent border-t-4 border-r-4 border-white border-dotted rounded-full animate-spin"></div>
                 <div className="mt-3 text-xl font-semibold">Welcome</div>
               </div>
             ) : (
@@ -183,7 +173,7 @@ const LockScreen = () => {
                   </Fragment>
                 ) : (
                   <Fragment>
-                    <div className="mt-7 bg-gray-800 bg-opacity-70 backdrop-blur-xl rounded-sm">
+                    <div className="bg-gray-800 rounded-sm mt-7 bg-opacity-70 backdrop-blur-xl">
                       <input
                         className="w-[15em] h-[2em] md:w-[20em] pr-[1.85em] bg-transparent placeholder-white px-2 tracking-widest rounded-sm"
                         type={showPINText ? "text" : "password"}
@@ -202,8 +192,8 @@ const LockScreen = () => {
                       </div>
                     </div>
                     <div
-                      className="mt-4 hover:text-gray-300 cursor-pointer"
-                      onClick={() => alert(`Your PIN is ${CONFIGS.correctPIN}`)}
+                      className="p-1 mt-4 cursor-pointer hover:text-gray-300"
+                      onClick={() => alert(`Your PIN is ${validPIN}`)}
                     >
                       I forgot my PIN
                     </div>
@@ -211,8 +201,8 @@ const LockScreen = () => {
                 )}
               </Fragment>
             )}
-            <div className="hidden lg:block absolute bottom-10 right-10">
-              <div className="flex justify-center items-center">
+            <div className="absolute hidden lg:block bottom-10 right-10">
+              <div className="flex items-center justify-center">
                 <button className="mx-2" title="Internet">
                   <TbWifi size={30} />
                 </button>
