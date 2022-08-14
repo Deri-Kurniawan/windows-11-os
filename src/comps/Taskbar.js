@@ -15,17 +15,16 @@ const Taskbar = () => {
   const [dateTitle, setTitle] = useState(moment().format("dddd, DD MMMM YYYY"));
 
   const _updateTime = () => {
-    const interval = setInterval(() => {
+    return setInterval(() => {
       setHours(moment().format("HH[:]mm"));
       setDate(moment().format("DD[/]MM[/]YYYY"));
       setTitle(moment().format("dddd, DD MMMM YYYY"));
     }, 1000);
-
-    return () => clearInterval(interval);
   };
 
   useEffect(() => {
-    _updateTime();
+    const updateTimeInterval = _updateTime();
+    return () => clearInterval(updateTimeInterval);
   }, []);
 
   return (

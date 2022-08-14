@@ -60,10 +60,9 @@ const LockScreen = () => {
     setShowPINText(!showPINText);
   };
 
-  const _updateTimePeriodically = () => {
-    const { hours, minutes, dayDateMonth } = CONFIGS.timeFormat;
-
-    const interval = setInterval(() => {
+  useEffect(() => {
+    const updateTimeInterval = setInterval(() => {
+      const { hours, minutes, dayDateMonth } = CONFIGS.timeFormat;
       const current = {
         hours: moment().format(hours),
         minutes: moment().format(minutes),
@@ -75,11 +74,7 @@ const LockScreen = () => {
       setDayDateMonth(current.dayDateMonth);
     }, 1000);
 
-    return () => clearInterval(interval);
-  };
-
-  const _keydownListenerPeriodically = () => {
-    const eventHandle = (e) => {
+    const keydownListenerHandle = (e) => {
       if (e.code === "Space" || e.code === "Enter") {
         setScreenDidUnlock(true);
       }
@@ -90,27 +85,22 @@ const LockScreen = () => {
       }
     };
 
-    window.addEventListener("keydown", eventHandle);
-    return () => window.removeEventListener("keydown", eventHandle);
-  };
+    window.addEventListener("keydown", keydownListenerHandle);
 
-  const _autoHidePINText = (showPINText, miliseconds) => {
-    if (showPINText === true) {
-      const timeout = setTimeout(() => {
-        setShowPINText(false);
-      }, miliseconds);
-
-      return () => clearTimeout(timeout);
-    }
-  };
-
-  useEffect(() => {
-    _updateTimePeriodically();
-    _keydownListenerPeriodically();
+    return () => {
+      clearInterval(updateTimeInterval);
+      window.removeEventListener("keydown", keydownListenerHandle);
+    };
   }, []);
 
   useEffect(() => {
-    _autoHidePINText(showPINText, CONFIGS.hidePINAutoTimeout);
+    if (showPINText === true) {
+      const timeout = setTimeout(() => {
+        setShowPINText(false);
+      }, CONFIGS.hidePINAutoTimeout);
+
+      return () => clearTimeout(timeout);
+    }
   }, [showPINText]);
 
   return (
