@@ -1,15 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
-import ASSETS from "../../assets";
+import { icons, wallpapers } from "../../assets";
 
 const desktopSlice = createSlice({
   name: "desktop",
   initialState: {
     activeWindows: [],
-    wallpaper: ASSETS.images.wallpapers[0].require,
+    wallpaper: wallpapers[0],
     battery: {
       charging: false,
       level: 0,
     },
+    pinnedApps: [
+      {
+        id: 1,
+        name: "File Explorer",
+        icon: icons.apps.winFileExplorer,
+        onClick: () => null,
+      },
+      {
+        id: 2,
+        name: "File Explorer",
+        icon: icons.apps.winFileExplorer,
+        onClick: () => null,
+      },
+    ]
   },
   reducers: {
     newActiveWindow: (state, action) => {},

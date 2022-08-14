@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
-import ASSETS from "../../assets";
+import { profiles, wallpapers } from "../../assets";
 
 export const lockScreenSlice = createSlice({
   name: "lockScreen",
   initialState: {
-    wallpaper: ASSETS.images.wallpapers[2].require,
+    wallpaper: wallpapers[2],
+    profileImage: profiles.deri,
     isLocked: true,
+    validPIN: "123123",
   },
   reducers: {
     setWallpaper: (state, action) => {
       state.wallpaper = action.payload;
+    },
+    setProfileImage: (state, action) => {
+      state.profileImage = action.payload;
     },
     setIsLocked: (state, action) => {
       state.isLocked = action.payload;
