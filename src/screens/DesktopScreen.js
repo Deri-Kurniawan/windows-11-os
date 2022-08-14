@@ -1,6 +1,6 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import Taskbar from "../comps/Taskbar";
+import DesktopShortcuts from "../comps/DesktopShortcuts";
 
 const DesktopScreen = () => {
   const wallpaper = useSelector((state) => state.desktop.wallpaper);
@@ -11,6 +11,7 @@ const DesktopScreen = () => {
       className="text-white bg-no-repeat bg-cover"
     >
       <div className="w-screen h-screen">
+        <DesktopShortcuts />
         <Taskbar />
       </div>
     </div>

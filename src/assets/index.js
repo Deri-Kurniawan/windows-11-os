@@ -20,6 +20,7 @@ const ASSETS = {
         winCMD: imagesIconsApps("win-cmd.png"),
         winDefender: imagesIconsApps("win-defender.png"),
         winFileExplorer: imagesIconsApps("win-file-explorer.ico"),
+        winMail: imagesIconsApps("win-mail.png"),
         winSearch: imagesIconsApps("win-search.ico"),
         winSettings: imagesIconsApps("win-settings.ico"),
         winTrashEmpty: imagesIconsApps("win-trash-empty.ico"),

@@ -5,7 +5,7 @@ import { GiSpeaker } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import moment from "moment";
 import { useSelector } from "react-redux";
-import TaskbarAppButton from "./TaskbarAppButton";
+import TaskbarPinnedAppButton from "./TaskbarPinnedAppButton";
 
 const Taskbar = () => {
   const pinnedApps = useSelector((state) => state.desktop.pinnedApps);
@@ -32,7 +32,7 @@ const Taskbar = () => {
       <div className="h-[2.8em] flex items-center justify-between">
         <div className="flex-1 hidden lg:flex"></div>
         <div className="flex items-center justify-start flex-1 lg:justify-center">
-          <TaskbarAppButton
+          <TaskbarPinnedAppButton
             name="Start"
             icon="https://img.icons8.com/fluency/344/windows-11.png"
             onClickHandle={() => null}
@@ -40,7 +40,7 @@ const Taskbar = () => {
           {pinnedApps.length > 0 && (
             <Fragment>
               {pinnedApps.map((app, index) => (
-                <TaskbarAppButton
+                <TaskbarPinnedAppButton
                   key={index}
                   className="hidden lg:block"
                   {...app}
