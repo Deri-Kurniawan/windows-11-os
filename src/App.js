@@ -32,9 +32,7 @@ function App() {
       });
     }, 1000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [dispatch]);
 
   return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
