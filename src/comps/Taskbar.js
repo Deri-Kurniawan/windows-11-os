@@ -5,6 +5,7 @@ import { GiSpeaker } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import moment from "moment";
 import { useSelector } from "react-redux";
+import TaskbarAppButton from "./TaskbarAppButton";
 
 const Taskbar = () => {
   const pinnedApps = useSelector((state) => state.desktop.pinnedApps);
@@ -30,36 +31,26 @@ const Taskbar = () => {
   return (
     <div className="fixed bottom-0 h-[2.8em] w-screen border-black bg-transparent text-white backdrop-blur-2xl backdrop-filter">
       <div className="h-[2.8em] flex items-center justify-between">
-        <div className="hidden lg:flex flex-1"></div>
-        <div className="flex flex-1 items-center justify-start lg:justify-center">
-          <button
-            className="h-[2.6em] w-[2.6em] m-[.1em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
-            title="Start"
-            onClick={() => null}
-          >
-            <img
-              src="https://img.icons8.com/fluency/344/windows-11.png"
-              alt=""
-            />
-          </button>
+        <div className="flex-1 hidden lg:flex"></div>
+        <div className="flex items-center justify-start flex-1 lg:justify-center">
+          <TaskbarAppButton
+            name="Start"
+            icon="https://img.icons8.com/fluency/344/windows-11.png"
+            onClickHandle={() => null}
+          />
           {pinnedApps.length > 0 && (
             <Fragment>
-              {pinnedApps.map((app) => (
-                <button
-                  className="h-[2.6em] w-[2.6em] m-[.1em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
-                  title={app.name}
-                  onClick={app.onClick}
-                >
-                  <img
-                    src={app.icon}
-                    alt={`${app.name} Icon`}
-                  />
-                </button>
+              {pinnedApps.map((app, index) => (
+                <TaskbarAppButton
+                  key={index}
+                  className="hidden lg:block"
+                  {...app}
+                />
               ))}
             </Fragment>
           )}
         </div>
-        <div className="flex flex-1 flex-row justify-end">
+        <div className="flex flex-row justify-end flex-1">
           <div className="flex h-[2.6em] m-[.1em] border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter">
             <div
               className="flex flex-row items-center justify-center"
