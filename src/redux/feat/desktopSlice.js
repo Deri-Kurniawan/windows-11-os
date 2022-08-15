@@ -23,43 +23,85 @@ const desktopSlice = createSlice({
         icon: icons.apps.whatsapp,
         width: 28,
         height: 28,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://wa.me/+6285720959031?text=Hello%20there%20from%20the%20desktop%20app!",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
       {
         name: "Google Chrome",
         icon: icons.apps.chrome,
         width: 28,
         height: 28,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://google.com",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
       {
         name: "Visual Studio Code",
         icon: icons.apps.vscode,
         width: 28,
         height: 28,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://vscode.dev",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
     ],
     shortcutApps: [
       {
         name: "Google Chrome",
         icon: icons.apps.chrome,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://google.com",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
       {
         name: "GitHub",
         icon: icons.apps.github,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://github.com/deri-kurniawan",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
       {
         name: "Visual Studio Code",
         icon: icons.apps.vscode,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://vscode.dev",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
       {
         name: "WhatsApp",
         icon: icons.apps.whatsapp,
-        onClick: () => null,
+        onClick: () => {
+          window.open(
+            "https://wa.me/+6285720959031?text=Hello%20there%20from%20the%20desktop%20app!",
+            "_blank",
+            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          );
+        },
       },
       {
         name: "Command Prompt",
@@ -79,7 +121,7 @@ const desktopSlice = createSlice({
       {
         name: "Mail",
         icon: icons.apps.winMail,
-        onClick: () => null,
+        onClick: () => (window.location.href = "mailto:deri.netuchi@gmail.com"),
       },
       {
         name: "Search",
