@@ -28,7 +28,7 @@ const Taskbar = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-0 h-[2.8em] w-screen border-black bg-transparent text-white backdrop-blur-2xl backdrop-filter">
+    <div className="fixed bottom-0 h-[2.8em] w-screen border-black bg-transparent text-white backdrop-blur-2xl backdrop-filter z-50">
       <div className="h-[2.8em] flex items-center justify-between">
         <div className="flex-1 hidden lg:flex"></div>
         <div className="flex items-center justify-start flex-1 lg:justify-center">

@@ -15,6 +15,7 @@ const ASSETS = {
       apps: {
         chrome: imagesIconsApps("chrome.ico"),
         github: imagesIconsApps("github.png"),
+        linkedin: imagesIconsApps("linkedin.png"),
         vscode: imagesIconsApps("vscode.png"),
         whatsapp: imagesIconsApps("whatsapp.png"),
         winCMD: imagesIconsApps("win-cmd.png"),

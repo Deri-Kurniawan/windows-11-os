@@ -1,148 +1,94 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { icons, wallpapers } from "../../assets";
+import { wallpapers } from "../../assets";
+import initialState from "../initialState";
 
 const desktopSlice = createSlice({
   name: "desktop",
   initialState: {
-    activeWindows: [],
+    activeWindows: [...initialState.activeWindows],
     wallpaper: wallpapers[0],
     battery: {
       charging: false,
       level: 0,
     },
-    pinnedApps: [
-      {
-        name: "File Explorer",
-        icon: icons.apps.winFileExplorer,
-        width: 25,
-        height: 25,
-        onClick: () => null,
-      },
-      {
-        name: "WhatsApp",
-        icon: icons.apps.whatsapp,
-        width: 28,
-        height: 28,
-        onClick: () => {
-          window.open(
-            "https://wa.me/+6285720959031?text=Hello%20there%20from%20the%20desktop%20app!",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-      {
-        name: "Google Chrome",
-        icon: icons.apps.chrome,
-        width: 28,
-        height: 28,
-        onClick: () => {
-          window.open(
-            "https://google.com",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-      {
-        name: "Visual Studio Code",
-        icon: icons.apps.vscode,
-        width: 28,
-        height: 28,
-        onClick: () => {
-          window.open(
-            "https://vscode.dev",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-    ],
-    shortcutApps: [
-      {
-        name: "Google Chrome",
-        icon: icons.apps.chrome,
-        onClick: () => {
-          window.open(
-            "https://google.com",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-      {
-        name: "GitHub",
-        icon: icons.apps.github,
-        onClick: () => {
-          window.open(
-            "https://github.com/deri-kurniawan",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-      {
-        name: "Visual Studio Code",
-        icon: icons.apps.vscode,
-        onClick: () => {
-          window.open(
-            "https://vscode.dev",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-      {
-        name: "WhatsApp",
-        icon: icons.apps.whatsapp,
-        onClick: () => {
-          window.open(
-            "https://wa.me/+6285720959031?text=Hello%20there%20from%20the%20desktop%20app!",
-            "_blank",
-            "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
-          );
-        },
-      },
-      {
-        name: "Command Prompt",
-        icon: icons.apps.winCMD,
-        onClick: () => null,
-      },
-      {
-        name: "Windows Defender",
-        icon: icons.apps.winDefender,
-        onClick: () => null,
-      },
-      {
-        name: "File Explorer",
-        icon: icons.apps.winFileExplorer,
-        onClick: () => null,
-      },
-      {
-        name: "Mail",
-        icon: icons.apps.winMail,
-        onClick: () => (window.location.href = "mailto:deri.netuchi@gmail.com"),
-      },
-      {
-        name: "Search",
-        icon: icons.apps.winSearch,
-        onClick: () => null,
-      },
-      {
-        name: "Settings",
-        icon: icons.apps.winSettings,
-        onClick: () => null,
-      },
-      {
-        name: "Trash Full",
-        icon: icons.apps.winTrashFull,
-        onClick: () => null,
-      },
-    ],
+    pinnedApps: [...initialState.pinnedApps],
+    shortcutApps: [...initialState.shortcutApps],
   },
   reducers: {
-    newActiveWindow: (state, action) => {},
-    removeActiveWindow: (state, action) => {},
+    /**
+     * Add a new window to the activeWindows array
+     * @param {*} state
+     * @param {object} action { height, width, x, y, title, minimized, maximized, Component }
+     */
+    newActiveWindow: (state, action) => {
+      const {
+        height = "80vh",
+        width = "80vw",
+        x = 10,
+        y = 10,
+        title = "",
+        minimized = false,
+        maximized = false,
+        Component = () => null,
+      } = action.payload;
+
+      const newId = state.activeWindows.length + 1;
+
+      const newWindow = {
+        id: newId,
+        height,
+        width,
+        x,
+        y,
+        title,
+        minimized,
+        maximized,
+        Component,
+      };
+
+      state.activeWindows.push(newWindow);
+    },
+    removeActiveWindow: (state, action) => {
+      const filtered = state.activeWindows.filter(
+        (win) => win.id !== action.payload
+      );
+
+      state.activeWindows = filtered;
+    },
+    /**
+     * minimze a window
+     * @param {*} state
+     * @param {object} action {id, minimized: boolean}
+     */
+    minimizeActiveWindow: (state, action) => {
+      const { id, minimized } = action.payload;
+
+      const filtered = state.activeWindows.map((win) => {
+        if (win.id === id) {
+          win.minimized = minimized;
+        }
+        return win;
+      });
+
+      state.activeWindows = filtered;
+    },
+    /**
+     *
+     * @param {*} state
+     * @param {object} action { id, maximized: boolean }
+     */
+    maximizeActiveWindow: (state, action) => {
+      const id = action.payload;
+
+      const filtered = state.activeWindows.map((win) => {
+        if (win.id === id) {
+          win.maximized = !win.maximized;
+        }
+        return win;
+      });
+
+      state.activeWindows = filtered;
+    },
     /**
      * Set the wallpaper
      * @param {*} state automatically generated
@@ -165,6 +111,8 @@ const desktopSlice = createSlice({
 export const {
   newActiveWindow,
   removeActiveWindow,
+  minimizeActiveWindow,
+  maximizeActiveWindow,
   setBatteryIsCharging,
   setBatteryLevel,
 } = desktopSlice.actions;
