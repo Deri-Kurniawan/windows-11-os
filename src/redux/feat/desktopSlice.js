@@ -89,6 +89,18 @@ const desktopSlice = createSlice({
 
       state.activeWindows = filtered;
     },
+    cancelMaximizeActiveWindow: (state, action) => {
+      const id = action.payload;
+
+      const filtered = state.activeWindows.map((win) => {
+        if (win.id === id) {
+          win.maximized = false;
+        }
+        return win;
+      });
+
+      state.activeWindows = filtered;
+    },
     /**
      * Set the wallpaper
      * @param {*} state automatically generated
@@ -113,6 +125,7 @@ export const {
   removeActiveWindow,
   minimizeActiveWindow,
   maximizeActiveWindow,
+  cancelMaximizeActiveWindow,
   setBatteryIsCharging,
   setBatteryLevel,
 } = desktopSlice.actions;

@@ -54,6 +54,8 @@ const initialState = {
     {
       name: "Google Chrome",
       icon: icons.apps.chrome,
+      width: 35,
+      height: 35,
       onClick: () => {
         window.open("https://google.com", "_blank", WIN_FEATURES);
       },
@@ -61,6 +63,8 @@ const initialState = {
     {
       name: "GitHub",
       icon: icons.apps.github,
+      width: 35,
+      height: 35,
       onClick: () => {
         window.open(
           "https://github.com/deri-kurniawan",
@@ -72,6 +76,8 @@ const initialState = {
     {
       name: "LinkedIn",
       icon: icons.apps.linkedin,
+      width: 35,
+      height: 35,
       onClick: () => {
         window.open(
           "https://linkedin.com/in/deri-kurniawan",
@@ -83,24 +89,33 @@ const initialState = {
     {
       name: "Visual Studio Code",
       icon: icons.apps.vscode,
+      width: 35,
+      height: 35,
       onClick: () => {
         window.open("https://vscode.dev", "_blank", WIN_FEATURES);
       },
     },
-    // {
-    //   name: "WhatsApp",
-    //   icon: icons.apps.whatsapp,
-    //   onClick: () => {
-    //     window.open(
-    //       "https://wa.me/+6285720959031?text=Hello%20there%20from%20the%20desktop%20app!",
-    //       "_blank",
-    //       WIN_FEATURES
-    //     );
-    //   },
-    // },
+    {
+      name: "WhatsApp",
+      icon: icons.apps.whatsapp,
+      width: 35,
+      height: 35,
+      onClick: () => {
+        const textMessage = encodeURIComponent(
+          "Hello Deri Kurniawan!, [your message here]"
+        );
+        window.open(
+          `https://wa.me/+6355720959031?text=${textMessage}`,
+          "_blank",
+          WIN_FEATURES
+        );
+      },
+    },
     {
       name: "Command Prompt",
       icon: icons.apps.winCMD,
+      width: 35,
+      height: 35,
       onClick: (e, dispatch) => {
         dispatch(
           newActiveWindow({
@@ -119,31 +134,43 @@ const initialState = {
     {
       name: "Windows Defender",
       icon: icons.apps.winDefender,
+      width: 35,
+      height: 35,
       onClick: () => null,
     },
     {
       name: "File Explorer",
       icon: icons.apps.winFileExplorer,
+      width: 35,
+      height: 35,
       onClick: () => null,
     },
     {
       name: "Mail",
       icon: icons.apps.winMail,
+      width: 35,
+      height: 35,
       onClick: () => (window.location.href = "mailto:deri.netuchi@gmail.com"),
     },
     {
       name: "Search",
       icon: icons.apps.winSearch,
+      width: 35,
+      height: 35,
       onClick: () => null,
     },
     {
       name: "Settings",
       icon: icons.apps.winSettings,
+      width: 35,
+      height: 35,
       onClick: () => null,
     },
     {
       name: "Trash Full",
       icon: icons.apps.winTrashFull,
+      width: 35,
+      height: 35,
       onClick: () => null,
     },
   ],

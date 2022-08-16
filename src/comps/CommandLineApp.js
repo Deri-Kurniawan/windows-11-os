@@ -6,6 +6,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { VscChromeRestore } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import {
+  cancelMaximizeActiveWindow,
   maximizeActiveWindow,
   minimizeActiveWindow,
   removeActiveWindow,
@@ -20,7 +21,6 @@ const CommandLineApp = ({
   y = 10,
   minimized = false,
   maximized = false,
-  Component,
 }) => {
   const [terminalHistory, setTerminalHistory] = useState([]);
   const [currentTerminalDirectory, setCurrentTerminalDirectory] =
@@ -61,7 +61,7 @@ const CommandLineApp = ({
       }
 
       const newDir = command.split(" ")[1];
-      if (command.includes("cd")) {
+      if (newDir !== "cd" && command.includes("cd")) {
         if (newDir) {
           const formattedDir = newDir.replace("/", "\\");
           setCurrentTerminalDirectory(formattedDir);
@@ -112,11 +112,17 @@ const CommandLineApp = ({
       handle="#draggable"
       defaultPosition={{ x: maximized ? 0 : y, y: maximized ? 0 : x }}
       position={maximized ? { x: 0, y: 0 } : null}
+      onDrag={(e, data) => {
+        dispatch(cancelMaximizeActiveWindow(id));
+      }}
     >
       <div
-        className={`absolute ${
-          !maximized ? `w-[${width}] h-[${height}] ` : "w-[100vw] h-[93vh]"
-        } inverse-toggle shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased  bg-gray-800 rounded-md leading-normal overflow-hidden z-10`}
+        style={
+          !maximized
+            ? { width: width, height: height }
+            : { width: "100vw", height: "93vh" }
+        }
+        className={`absolute inverse-toggle shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased  bg-gray-800 rounded-md leading-normal overflow-hidden z-10`}
       >
         <div className="flex justify-between items-center bg-gray-900">
           <div

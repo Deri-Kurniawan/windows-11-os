@@ -8,7 +8,7 @@ import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
 import { setIsLocked } from "../redux/feat/lockScreenSlice";
 
 const CONFIGS = {
-  validtPINLoadingTimeout: 3000,
+  validtPINLoadingTimeout: 1000,
   hidePINAutoTimeout: 3000,
   timeFormat: {
     hours: "HH",
@@ -75,7 +75,11 @@ const LockScreen = () => {
     }, 1000);
 
     const keydownListenerHandle = (e) => {
-      if (e.code === "Space" || e.code === "Enter") {
+      if (
+        e.code === "Space" ||
+        e.code === "Enter" ||
+        e.code === "NumpadEnter"
+      ) {
         setScreenDidUnlock(true);
       }
 
