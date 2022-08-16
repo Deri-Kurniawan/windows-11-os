@@ -166,13 +166,13 @@ const initialState = {
         );
       },
     },
-    {
-      name: "Windows Defender",
-      icon: icons.apps.winDefender,
-      width: 35,
-      height: 35,
-      onClick: () => null,
-    },
+    // {
+    //   name: "Windows Defender",
+    //   icon: icons.apps.winDefender,
+    //   width: 35,
+    //   height: 35,
+    //   onClick: () => null,
+    // },
     {
       name: "File Explorer",
       icon: icons.apps.winFileExplorer,
@@ -198,13 +198,13 @@ const initialState = {
       height: 35,
       onClick: () => (window.location.href = "mailto:deri.netuchi@gmail.com"),
     },
-    {
-      name: "Search",
-      icon: icons.apps.winSearch,
-      width: 35,
-      height: 35,
-      onClick: () => null,
-    },
+    // {
+    //   name: "Search",
+    //   icon: icons.apps.winSearch,
+    //   width: 35,
+    //   height: 35,
+    //   onClick: () => null,
+    // },
     {
       name: "Settings",
       icon: icons.apps.winSettings,
@@ -225,13 +225,13 @@ const initialState = {
         );
       },
     },
-    {
-      name: "Trash Full",
-      icon: icons.apps.winTrashFull,
-      width: 35,
-      height: 35,
-      onClick: () => null,
-    },
+    // {
+    //   name: "Trash Full",
+    //   icon: icons.apps.winTrashFull,
+    //   width: 35,
+    //   height: 35,
+    //   onClick: () => null,
+    // },
   ],
 };
 
