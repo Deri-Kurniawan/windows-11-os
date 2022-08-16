@@ -5,6 +5,7 @@ import { IoIosSquareOutline } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import { VscChromeRestore } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
+import { icons } from "../assets";
 import {
   cancelMaximizeActiveWindow,
   maximizeActiveWindow,
@@ -129,12 +130,12 @@ const CommandLineApp = ({
             className="pl-2 py-2 flex flex-grow hover:cursor-grab active:cursor-grabbing"
             id="draggable"
           >
+            <div className="mr-2">
+              <img className="w-4 h-4" src={icons.apps.winCMD} alt="" />
+            </div>
             {title}
           </div>
-          <div
-            className="flex justify-center items-center text-gray-400"
-            id="focus-area"
-          >
+          <div className="flex justify-center items-center text-gray-400">
             <div
               className="p-3 flex items-center hover:bg-gray-600"
               title="Minimize"

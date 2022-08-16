@@ -1,5 +1,6 @@
 import { icons } from "../assets";
 import CommandLineApp from "../comps/CommandLineApp";
+import FileExplorerApp from "../comps/FileExplorerApp";
 import SettingsApp from "../comps/SettingsApp";
 import { newActiveWindow } from "./feat/desktopSlice";
 
@@ -14,7 +15,20 @@ const initialState = {
       icon: icons.apps.winFileExplorer,
       width: 25,
       height: 25,
-      onClick: () => null,
+      onClick: (e, dispatch) => {
+        dispatch(
+          newActiveWindow({
+            title: "File Explorer",
+            height: "80vh",
+            width: "80vw",
+            x: 10,
+            y: 10,
+            minimized: false,
+            maximized: false,
+            Component: FileExplorerApp,
+          })
+        );
+      },
     },
     {
       name: "WhatsApp",
@@ -164,7 +178,18 @@ const initialState = {
       icon: icons.apps.winFileExplorer,
       width: 35,
       height: 35,
-      onClick: () => null,
+      onClick: () => {
+        newActiveWindow({
+          title: "File Explorer",
+          height: "80vh",
+          width: "80vw",
+          x: 10,
+          y: 10,
+          minimized: false,
+          maximized: false,
+          Component: FileExplorerApp,
+        });
+      },
     },
     {
       name: "Mail",
