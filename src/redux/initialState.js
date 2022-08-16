@@ -178,8 +178,8 @@ const initialState = {
       icon: icons.apps.winFileExplorer,
       width: 35,
       height: 35,
-      onClick: () => {
-        newActiveWindow({
+      onClick: (e, dispatch) => {
+        dispatch(newActiveWindow({
           title: "File Explorer",
           height: "80vh",
           width: "80vw",
@@ -188,7 +188,7 @@ const initialState = {
           minimized: false,
           maximized: false,
           Component: FileExplorerApp,
-        });
+        }));
       },
     },
     {
