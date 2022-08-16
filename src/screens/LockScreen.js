@@ -19,7 +19,7 @@ const CONFIGS = {
 
 const LockScreen = () => {
   const wallpaper = useSelector((state) => state.lockScreen.wallpaper);
-  const profileImage = useSelector((state) => state.lockScreen.profileImage);
+  const profileImage = useSelector((state) => state.desktop.profileImage);
   const validPIN = useSelector((state) => state.lockScreen.validPIN);
   const [loginIsSuccess, setLoginIsSuccess] = useState(false);
   const [screenDidUnlock, setScreenDidUnlock] = useState(false);

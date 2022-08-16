@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { wallpapers } from "../../assets";
+import { profiles, wallpapers } from "../../assets";
 import initialState from "../initialState";
 
 const desktopSlice = createSlice({
   name: "desktop",
   initialState: {
+    profileImage: profiles.deri,
     activeWindows: [...initialState.activeWindows],
     wallpaper: wallpapers[0],
     battery: {
@@ -15,6 +16,22 @@ const desktopSlice = createSlice({
     shortcutApps: [...initialState.shortcutApps],
   },
   reducers: {
+    /**
+     * Set the wallpaper
+     * @param {*} state automatically generated
+     * @param {require} action import image
+     */
+    setWallpaper: (state, action) => {
+      state.wallpaper = wallpapers[action.payload];
+    },
+    /**
+     * Set the profile image
+     * @param {*} state automatically generated
+     * @param {require} action import image
+     */
+    setProfileImage: (state, action) => {
+      state.profileImage = action.payload;
+    },
     /**
      * Add a new window to the activeWindows array
      * @param {*} state
@@ -121,6 +138,8 @@ const desktopSlice = createSlice({
 });
 
 export const {
+  setWallpaper,
+  setProfileImage,
   newActiveWindow,
   removeActiveWindow,
   minimizeActiveWindow,

@@ -1,5 +1,6 @@
 import { icons } from "../assets";
 import CommandLineApp from "../comps/CommandLineApp";
+import SettingsApp from "../comps/SettingsApp";
 import { newActiveWindow } from "./feat/desktopSlice";
 
 const WIN_FEATURES =
@@ -47,6 +48,26 @@ const initialState = {
       height: 28,
       onClick: () => {
         window.open("https://vscode.dev", "_blank", WIN_FEATURES);
+      },
+    },
+    {
+      name: "Settings",
+      icon: icons.apps.winSettings,
+      width: 28,
+      height: 28,
+      onClick: (e, dispatch) => {
+        dispatch(
+          newActiveWindow({
+            title: "Settings",
+            height: "80vh",
+            width: "80vw",
+            x: 10,
+            y: 10,
+            minimized: false,
+            maximized: false,
+            Component: SettingsApp,
+          })
+        );
       },
     },
   ],
@@ -164,7 +185,20 @@ const initialState = {
       icon: icons.apps.winSettings,
       width: 35,
       height: 35,
-      onClick: () => null,
+      onClick: (e, dispatch) => {
+        dispatch(
+          newActiveWindow({
+            title: "Settings",
+            height: "80vh",
+            width: "80vw",
+            x: 10,
+            y: 10,
+            minimized: false,
+            maximized: false,
+            Component: SettingsApp,
+          })
+        );
+      },
     },
     {
       name: "Trash Full",
