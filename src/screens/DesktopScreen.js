@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import Taskbar from "../comps/Taskbar";
 import DesktopShortcuts from "../comps/DesktopShortcuts";
-import { Fragment } from "react";
 import WindowsModal from "../comps/WindowsModal";
 
 const DesktopScreen = () => {
@@ -15,7 +14,7 @@ const DesktopScreen = () => {
     >
       <div className="w-screen h-screen">
         {activeWindows.length > 0 && (
-          <Fragment>
+          <>
             {activeWindows
               .filter((win) => win.minimized === false)
               .map(
@@ -46,7 +45,7 @@ const DesktopScreen = () => {
                   />
                 )
               )}
-          </Fragment>
+          </>
         )}
         <DesktopShortcuts />
         <Taskbar />

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import { useState } from "react";
 import Draggable from "react-draggable";
 import { BsDash } from "react-icons/bs";
 import { IoIosSquareOutline } from "react-icons/io";
@@ -123,7 +123,7 @@ const CommandLineApp = ({
             ? { width: width, height: height }
             : { width: "100vw", height: "93vh" }
         }
-        className={`absolute inverse-toggle shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased  bg-gray-800 rounded-md leading-normal overflow-hidden z-10`}
+        className="absolute z-10 overflow-hidden font-mono text-sm subpixel-antialiased leading-normal text-gray-100 bg-gray-800 rounded-md shadow-lg inverse-toggle"
       >
         <div className="flex items-center justify-between bg-gray-900">
           <div
@@ -176,7 +176,7 @@ const CommandLineApp = ({
           </p>
           <div className="flex flex-col">
             {terminalHistory.length > 0 && (
-              <Fragment>
+              <>
                 {terminalHistory.map((line, index) => (
                   <div key={index} className="mb-2">
                     <div className="flex flex-row">
@@ -190,7 +190,7 @@ const CommandLineApp = ({
                     {line.output && <div>{line.output}</div>}
                   </div>
                 ))}
-              </Fragment>
+              </>
             )}
           </div>
           <div className="flex">

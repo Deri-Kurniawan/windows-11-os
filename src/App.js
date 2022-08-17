@@ -12,7 +12,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // Get, Set battery level and charging status
     const interval = setInterval(() => {
       navigator.getBattery().then((battery) => {
         dispatch(setBatteryIsCharging(battery.charging));
@@ -36,7 +35,7 @@ function App() {
   }, [dispatch]);
 
 
-  return !isScreenLocked ? <LockScreen /> : <DesktopScreen />;
+  return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
 }
 
 export default App;

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import BatteryIcon from "../comps/BatteryIcon";
 import { AiOutlineWifi } from "react-icons/ai";
 import { GiSpeaker } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import moment from "moment";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import TaskbarPinnedAppButton from "./TaskbarPinnedAppButton";
 import { setWinModalToggled } from "../redux/feat/desktopSlice";
 
@@ -42,7 +42,7 @@ const Taskbar = () => {
             }}
           />
           {pinnedApps.length > 0 && (
-            <Fragment>
+            <>
               {pinnedApps.map((app, index) => (
                 <TaskbarPinnedAppButton
                   key={index}
@@ -50,7 +50,7 @@ const Taskbar = () => {
                   {...app}
                 />
               ))}
-            </Fragment>
+            </>
           )}
         </div>
         <div className="flex flex-row justify-end flex-1">

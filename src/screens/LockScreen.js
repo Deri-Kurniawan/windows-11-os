@@ -1,5 +1,5 @@
 import moment from "moment/moment";
-import React, { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import BatteryIcon from "../comps/BatteryIcon";
 import { TbWifi } from "react-icons/tb";
@@ -108,7 +108,7 @@ const LockScreen = () => {
   }, [showPINText]);
 
   return (
-    <Fragment>
+    <>
       <div
         style={{
           backgroundImage: `url('${wallpaper}')`,
@@ -159,9 +159,9 @@ const LockScreen = () => {
                 <div className="mt-3 text-xl font-semibold">Welcome</div>
               </div>
             ) : (
-              <Fragment>
+              <>
                 {PINAttemptIsWrong ? (
-                  <Fragment>
+                  <>
                     <div className="mt-7">
                       <div className="mt-4">
                         The PIN is incorrect. Try again.
@@ -174,9 +174,9 @@ const LockScreen = () => {
                     >
                       <span className="font-semibold">OK</span>
                     </button>
-                  </Fragment>
+                  </>
                 ) : (
-                  <Fragment>
+                  <>
                     <div className="bg-gray-800 rounded-sm mt-7 bg-opacity-70 backdrop-blur-xl">
                       <input
                         className="w-[15em] h-[2em] md:w-[20em] pr-[1.85em] bg-transparent placeholder-white px-2 tracking-widest rounded-sm"
@@ -200,9 +200,9 @@ const LockScreen = () => {
                     >
                       I forgot my PIN
                     </div>
-                  </Fragment>
+                  </>
                 )}
-              </Fragment>
+              </>
             )}
             <div className="absolute hidden lg:block bottom-10 right-10">
               <div className="flex items-center justify-center">
@@ -220,7 +220,7 @@ const LockScreen = () => {
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 
