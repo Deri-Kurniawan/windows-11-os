@@ -179,16 +179,18 @@ const initialState = {
       width: 35,
       height: 35,
       onClick: (e, dispatch) => {
-        dispatch(newActiveWindow({
-          title: "File Explorer",
-          height: "80vh",
-          width: "80vw",
-          x: 10,
-          y: 10,
-          minimized: false,
-          maximized: false,
-          Component: FileExplorerApp,
-        }));
+        dispatch(
+          newActiveWindow({
+            title: "File Explorer",
+            height: "80vh",
+            width: "80vw",
+            x: 10,
+            y: 10,
+            minimized: false,
+            maximized: false,
+            Component: FileExplorerApp,
+          })
+        );
       },
     },
     {
@@ -232,6 +234,19 @@ const initialState = {
     //   height: 35,
     //   onClick: () => null,
     // },
+    {
+      name: "About This Project",
+      icon: icons.apps.github,
+      width: 35,
+      height: 35,
+      onClick: () => {
+        window.open(
+          "https://github.com/deri-kurniawan/deri-kurniawan.github.io",
+          "_blank",
+          WIN_FEATURES
+        );
+      },
+    },
   ],
 };
 

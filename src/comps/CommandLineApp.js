@@ -133,7 +133,8 @@ const CommandLineApp = ({
             <div className="mr-2">
               <img className="w-4 h-4" src={icons.apps.winCMD} alt="" />
             </div>
-            {title}
+            <p className="hidden md:block">{title}</p>
+            <p className="md:hidden">Command Line</p>
           </div>
           <div className="flex justify-center items-center text-gray-400">
             <div

@@ -33,8 +33,11 @@ const ASSETS = {
     },
     wallpapers: [
       imagesWallpapers("1.png"),
-      imagesWallpapers("2.png"),
+      imagesWallpapers("2.jpg"),
       imagesWallpapers("3.png"),
+      imagesWallpapers("4.jpg"),
+      imagesWallpapers("5.jpg"),
+      imagesWallpapers("6.jpg"),
     ],
   },
 };
