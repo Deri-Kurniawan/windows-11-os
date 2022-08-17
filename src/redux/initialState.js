@@ -2,10 +2,8 @@ import { icons } from "../assets";
 import CommandLineApp from "../comps/CommandLineApp";
 import FileExplorerApp from "../comps/FileExplorerApp";
 import SettingsApp from "../comps/SettingsApp";
+import { WIN_FEATURES } from "../const/winSize";
 import { newActiveWindow } from "./feat/desktopSlice";
-
-const WIN_FEATURES =
-  "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=1200,height=500";
 
 const initialState = {
   activeWindows: [],
@@ -52,7 +50,7 @@ const initialState = {
       width: 28,
       height: 28,
       onClick: () => {
-        window.open("https://google.com", "_blank", WIN_FEATURES);
+        window.open("https://www.google.com/search?q=Deri+Kurniawan+github", "_blank", WIN_FEATURES);
       },
     },
     {
@@ -92,7 +90,7 @@ const initialState = {
       width: 35,
       height: 35,
       onClick: () => {
-        window.open("https://google.com", "_blank", WIN_FEATURES);
+        window.open("https://www.google.com/search?q=Deri+Kurniawan+github", "_blank", WIN_FEATURES);
       },
     },
     {
@@ -140,7 +138,7 @@ const initialState = {
           "Hello Deri Kurniawan!, [your message here]"
         );
         window.open(
-          `https://wa.me/+6355720959031?text=${textMessage}`,
+          `https://wa.me/+625720959031?text=${textMessage}`,
           "_blank",
           WIN_FEATURES
         );

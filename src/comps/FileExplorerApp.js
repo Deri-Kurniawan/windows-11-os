@@ -33,6 +33,21 @@ import {
 import { CgScan } from "react-icons/cg";
 import { HiOutlineViewList } from "react-icons/hi";
 import { RiComputerFill } from "react-icons/ri";
+import { WIN_FEATURES } from "../const/winSize";
+import { useState } from "react";
+
+const blueprint = [
+  {
+    name: "CV_DERI_KURNIAWAN.pdf",
+    size: "1.68 MB",
+    modify: "16/11/2021 13:44",
+  },
+  {
+    name: "RESUME_DERI_KURNIAWAN.pdf",
+    size: "28.8 KB",
+    modify: "25/11/2021 17:56",
+  },
+]
 
 const FileExplorerApp = ({
   id,
@@ -44,6 +59,17 @@ const FileExplorerApp = ({
   minimized = false,
   maximized = false,
 }) => {
+  const [files] = useState([
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+    ...blueprint,
+  ])
   const dispatch = useDispatch();
 
   return (
@@ -187,7 +213,6 @@ const FileExplorerApp = ({
                 <div className="relative text-white focus-within:text-gray-400">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                     <button
-                      type="submit"
                       className="p-1 focus:outline-none focus:shadow-outline"
                     >
                       <VscSearch />
@@ -236,104 +261,23 @@ const FileExplorerApp = ({
                       Name
                     </th>
                     <th className="pl-2 py-1 border-r-[1px] border-white">
-                      Status
+                      Size
                     </th>
-                    <th className="pl-2 py-1 border-r-[1px] border-white">
+                    <th className="hidden lg:block pl-2 py-1 border-r-[1px] border-white">
                       Date Modified
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
+                  {files.map((file, index) => (
+                  <tr key={index} className="hover:bg-white hover:bg-opacity-10" onClick={() => {
+                    window.open(`https://deri-kurniawan.w3spaces.com/${file.name}`, "_blank", WIN_FEATURES)
+                  }}>
+                    <td className="pl-2">{file.name}</td>
+                    <td className="pl-2">{file.size}</td>
+                    <td className="hidden pl-2 lg:block">{file.modify}</td>
                   </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
-                  <tr className="hover:bg-white hover:bg-opacity-10">
-                    <td className="pl-2">Deri_Kurniawan_CV.pdf</td>
-                    <td className="pl-2"></td>
-                    <td className="pl-2">15/05/2022 17:33</td>
-                  </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
