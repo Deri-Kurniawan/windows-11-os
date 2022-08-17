@@ -223,7 +223,6 @@ const FileExplorerApp = ({
                     name="q"
                     className="py-2 text-sm bg-transparent pl-10 focus:outline-none placeholder:text-white border-[1px] border-white"
                     placeholder="Search"
-                    autocomplete="off"
                   />
                 </div>
               </div>

@@ -4,11 +4,13 @@ import { AiOutlineWifi } from "react-icons/ai";
 import { GiSpeaker } from "react-icons/gi";
 import { MdOutlineKeyboardArrowUp } from "react-icons/md";
 import moment from "moment";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import TaskbarPinnedAppButton from "./TaskbarPinnedAppButton";
+import { setWinModalToggled } from "../redux/feat/desktopSlice";
 
 const Taskbar = () => {
   const pinnedApps = useSelector((state) => state.desktop.pinnedApps);
+  const winModalToggled = useSelector((state) => state.desktop.winModalToggled);
 
   const [hours, setHours] = useState(moment().format("HH[:]mm"));
   const [date, setDate] = useState(moment().format("DD[/]MM[/]YYYY"));
@@ -35,7 +37,9 @@ const Taskbar = () => {
           <TaskbarPinnedAppButton
             name="Start"
             icon="https://img.icons8.com/fluency/344/windows-11.png"
-            onClickHandle={() => null}
+            onClick={(e, dispatch) => {
+              dispatch(setWinModalToggled(!winModalToggled))
+            }}
           />
           {pinnedApps.length > 0 && (
             <Fragment>

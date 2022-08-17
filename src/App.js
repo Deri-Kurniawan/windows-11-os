@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import LockScreen from "./screens/LockScreen";
 import DesktopScreen from "./screens/DesktopScreen";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,7 +35,8 @@ function App() {
     return () => clearInterval(interval);
   }, [dispatch]);
 
-  return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
+
+  return !isScreenLocked ? <LockScreen /> : <DesktopScreen />;
 }
 
 export default App;

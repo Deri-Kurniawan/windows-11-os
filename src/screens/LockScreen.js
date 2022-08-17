@@ -184,7 +184,6 @@ const LockScreen = () => {
                         inputMode="numeric"
                         pattern="[0-9]*"
                         maxLength={6}
-                        autoComplete="off"
                         autoFocus={screenDidUnlock}
                         placeholder="PIN"
                         onChange={onChangePIN}

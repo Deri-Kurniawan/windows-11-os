@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Taskbar from "../comps/Taskbar";
 import DesktopShortcuts from "../comps/DesktopShortcuts";
 import { Fragment } from "react";
+import WindowsModal from "../comps/WindowsModal";
 
 const DesktopScreen = () => {
   const wallpaper = useSelector((state) => state.desktop.wallpaper);
@@ -50,6 +51,7 @@ const DesktopScreen = () => {
         <DesktopShortcuts />
         <Taskbar />
       </div>
+        <WindowsModal />
     </div>
   );
 };

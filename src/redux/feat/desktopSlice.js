@@ -12,6 +12,7 @@ const desktopSlice = createSlice({
       charging: false,
       level: 0,
     },
+    winModalToggled: false,
     pinnedApps: [...initialState.pinnedApps],
     shortcutApps: [...initialState.shortcutApps],
   },
@@ -118,6 +119,9 @@ const desktopSlice = createSlice({
 
       state.activeWindows = filtered;
     },
+    setWinModalToggled: (state, actions) => {
+      state.winModalToggled = actions.payload;
+    },
     /**
      * Set the wallpaper
      * @param {*} state automatically generated
@@ -145,6 +149,7 @@ export const {
   minimizeActiveWindow,
   maximizeActiveWindow,
   cancelMaximizeActiveWindow,
+  setWinModalToggled,
   setBatteryIsCharging,
   setBatteryLevel,
 } = desktopSlice.actions;
