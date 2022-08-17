@@ -29,7 +29,7 @@ const DesktopAppShortcutButton = ({
         <FaExternalLinkSquareAlt
           size={13}
           color="white"
-          enableBackground={true}
+          enableBackground="true"
           className="absolute top-5 left-5 bg-sky-500"
         />
       </div>
