@@ -125,9 +125,9 @@ const CommandLineApp = ({
         }
         className={`absolute inverse-toggle shadow-lg text-gray-100 text-sm font-mono subpixel-antialiased  bg-gray-800 rounded-md leading-normal overflow-hidden z-10`}
       >
-        <div className="flex justify-between items-center bg-gray-900">
+        <div className="flex items-center justify-between bg-gray-900">
           <div
-            className="pl-2 py-2 flex flex-grow hover:cursor-grab active:cursor-grabbing"
+            className="flex flex-grow py-2 pl-2 hover:cursor-grab active:cursor-grabbing"
             id="draggable"
           >
             <div className="mr-2">
@@ -136,9 +136,9 @@ const CommandLineApp = ({
             <p className="hidden md:block">{title}</p>
             <p className="md:hidden">Command Line</p>
           </div>
-          <div className="flex justify-center items-center text-gray-400">
+          <div className="flex items-center justify-center text-gray-400">
             <div
-              className="p-3 flex items-center hover:bg-gray-600"
+              className="flex items-center p-3 hover:bg-gray-600"
               title="Minimize"
               onClick={() => {
                 dispatch(minimizeActiveWindow({ id, minimized: true }));
@@ -147,7 +147,7 @@ const CommandLineApp = ({
               <BsDash />
             </div>
             <div
-              className="ml-2 p-3 flex items-center hover:bg-gray-600"
+              className="flex items-center p-3 ml-2 hover:bg-gray-600"
               title={maximized ? "Restore" : "Maximize"}
               onClick={() => {
                 dispatch(maximizeActiveWindow(id));
@@ -156,7 +156,7 @@ const CommandLineApp = ({
               {maximized ? <VscChromeRestore /> : <IoIosSquareOutline />}
             </div>
             <div
-              className="ml-2 p-3 flex items-center hover:bg-red-500"
+              className="flex items-center p-3 ml-2 hover:bg-red-500"
               title="Close"
               onClick={() => {
                 dispatch(removeActiveWindow(id));
@@ -183,7 +183,7 @@ const CommandLineApp = ({
                       <span className="text-green-400">
                         {line.currentDirectory}&gt;
                       </span>
-                      <span className="flex-1 typing items-center pl-2">
+                      <span className="items-center flex-1 pl-2 typing">
                         {line.command}
                       </span>
                     </div>
@@ -198,7 +198,7 @@ const CommandLineApp = ({
               {currentTerminalDirectory}&gt;
             </span>
             <input
-              className="flex-1 typing items-center pl-2 bg-transparent ring-0 outline-none"
+              className="items-center flex-1 pl-2 bg-transparent outline-none typing ring-0"
               autoFocus={true}
               onKeyDown={onKeydownTerminalInput}
             />

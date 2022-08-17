@@ -47,9 +47,9 @@ const SettingsApp = ({
         }
         className={`absolute inverse-toggle shadow-lg text-gray-100 text-sm subpixel-antialiased  bg-transparent backdrop-blur-2xl backdrop-filter rounded-md leading-normal overflow-hidden z-10 border-[1px] border-gray-300`}
       >
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div
-            className="pl-2 py-2 flex flex-grow hover:cursor-grab active:cursor-grabbing"
+            className="flex flex-grow py-2 pl-2 hover:cursor-grab active:cursor-grabbing"
             id="draggable"
           >
             <button className="mr-2">
@@ -57,9 +57,9 @@ const SettingsApp = ({
             </button>
             {title}
           </div>
-          <div className="flex justify-center items-center text-white">
+          <div className="flex items-center justify-center text-white">
             <div
-              className="p-3 flex items-center hover:bg-white hover:bg-opacity-10"
+              className="flex items-center p-3 hover:bg-white hover:bg-opacity-10"
               title="Minimize"
               onClick={() => {
                 dispatch(minimizeActiveWindow({ id, minimized: true }));
@@ -68,7 +68,7 @@ const SettingsApp = ({
               <BsDash />
             </div>
             <div
-              className="ml-2 p-3 flex items-center hover:bg-white hover:bg-opacity-10"
+              className="flex items-center p-3 ml-2 hover:bg-white hover:bg-opacity-10"
               title={maximized ? "Restore" : "Maximize"}
               onClick={() => {
                 dispatch(maximizeActiveWindow(id));
@@ -77,7 +77,7 @@ const SettingsApp = ({
               {maximized ? <VscChromeRestore /> : <IoIosSquareOutline />}
             </div>
             <div
-              className="ml-2 p-3 flex items-center hover:bg-red-500"
+              className="flex items-center p-3 ml-2 hover:bg-red-500"
               title="Close"
               onClick={() => {
                 dispatch(removeActiveWindow(id));
@@ -88,13 +88,13 @@ const SettingsApp = ({
           </div>
         </div>
         <div className="grid grid-cols-12 gap-2">
-          <div className="hidden lg:grid col-span-3 px-2 pb-10">
+          <div className="hidden col-span-3 px-2 pb-10 lg:grid">
             {/* Sidebar */}
             <div className="mt-2">
               {/* Header */}
-              <div className="flex flex-row justify-start items-center">
+              <div className="flex flex-row items-center justify-start">
                 <Avatar img={profileImage} size="md" rounded={true} />
-                <div className="flex flex-col justify-center items-start ml-3">
+                <div className="flex flex-col items-start justify-center ml-3">
                   <p>Deri Kurniawan</p>
                   <p>deri.netuchi@gmail</p>
                 </div>
@@ -102,12 +102,12 @@ const SettingsApp = ({
               {/* Search */}
               <input
                 type="search"
-                className="bg-gray-900 h-8 rounded-sm w-full placeholder:text-white my-4 border-b-white border-t-0 border-r-0 border-b-2 border-l-0 focus:outline-none"
+                className="w-full h-8 my-4 bg-gray-900 border-t-0 border-b-2 border-l-0 border-r-0 rounded-sm placeholder:text-white border-b-white focus:outline-none"
                 placeholder="Find a setting"
               />
               {/* Settings Options */}
-              <div className="flex flex-col justify-start items-start">
-                <div className="flex flex-row justify-start items-center w-full p-2 rounded-md bg-transparent bg-white bg-opacity-10 backdrop-blur-3xl backdrop-filter">
+              <div className="flex flex-col items-start justify-start">
+                <div className="flex flex-row items-center justify-start w-full p-2 bg-transparent bg-white rounded-md bg-opacity-10 backdrop-blur-3xl backdrop-filter">
                   <div className="mr-2">
                     <FaPaintBrush size={18} />
                   </div>
@@ -119,8 +119,8 @@ const SettingsApp = ({
           {/* content */}
           <div className="grid col-span-12 lg:col-span-9">
             <div className="px-5 pb-5 lg:px-2 lg:p-2">
-              <h1 className="text-xl font-bold mb-3">Personalization</h1>
-              <div className="flex flex-col lg:flex-row justify-start items-start">
+              <h1 className="mb-3 text-xl font-bold">Personalization</h1>
+              <div className="flex flex-col items-start justify-start lg:flex-row">
                 <div className="flex flex-1">
                   <img
                     className="w-40 rounded-lg"
@@ -129,9 +129,9 @@ const SettingsApp = ({
                   />
                 </div>
                 <div className="flex flex-col flex-1 mt-3 lg:mt-0">
-                  <h2 className="text-md font-bold">Select a theme to apply</h2>
+                  <h2 className="font-bold text-md">Select a theme to apply</h2>
 
-                  <div className="grid grid-row grid-cols-3 gap-2 mt-2">
+                  <div className="grid grid-cols-3 gap-2 mt-2 grid-row">
                     {wallpapers.length > 0 && (
                       <>
                         {wallpapers.map((wallpaper, index) => (

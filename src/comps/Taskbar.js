@@ -93,7 +93,7 @@ const Taskbar = () => {
             </div>
           </div>
           <div
-            className="flex h-[2.6em] my-[.1em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
+            className="h-[2.6em] my-[.1em] flex border-black bg-transparent rounded-md hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
             onClick={() => null}
           >
             <div

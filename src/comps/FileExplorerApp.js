@@ -64,9 +64,9 @@ const FileExplorerApp = ({
         className={`absolute inverse-toggle shadow-lg text-gray-100 text-sm subpixel-antialiased bg-gray-900 rounded-md leading-normal overflow-hidden z-10 border-[1px] border-gray-300`}
       >
         {/* Window Actions */}
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div
-            className="pl-2 py-2 flex flex-grow hover:cursor-grab active:cursor-grabbing"
+            className="flex flex-grow py-2 pl-2 hover:cursor-grab active:cursor-grabbing"
             id="draggable"
           >
             <div className="mr-2">
@@ -78,9 +78,9 @@ const FileExplorerApp = ({
             </div>
             {title}
           </div>
-          <div className="flex justify-center items-center text-white">
+          <div className="flex items-center justify-center text-white">
             <div
-              className="p-3 flex items-center hover:bg-white hover:bg-opacity-10"
+              className="flex items-center p-3 hover:bg-white hover:bg-opacity-10"
               title="Minimize"
               onClick={() => {
                 dispatch(minimizeActiveWindow({ id, minimized: true }));
@@ -89,7 +89,7 @@ const FileExplorerApp = ({
               <BsDash />
             </div>
             <div
-              className="ml-2 p-3 flex items-center hover:bg-white hover:bg-opacity-10"
+              className="flex items-center p-3 ml-2 hover:bg-white hover:bg-opacity-10"
               title={maximized ? "Restore" : "Maximize"}
               onClick={() => {
                 dispatch(maximizeActiveWindow(id));
@@ -98,7 +98,7 @@ const FileExplorerApp = ({
               {maximized ? <VscChromeRestore /> : <IoIosSquareOutline />}
             </div>
             <div
-              className="ml-2 p-3 flex items-center hover:bg-red-500"
+              className="flex items-center p-3 ml-2 hover:bg-red-500"
               title="Close"
               onClick={() => {
                 dispatch(removeActiveWindow(id));
@@ -112,38 +112,38 @@ const FileExplorerApp = ({
           {/* Tools */}
           <div className="hidden lg:block border-b-[1px] border-gray-300 py-2">
             <div className="flex flex-row w-full">
-              <button className="flex justify-center items-center py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+              <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                 <TbCirclePlus size={23} /> New <MdKeyboardArrowDown />
               </button>
               <div className="border-x-[1px] border-sky-300">
-                <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <TbCut size={23} />
                 </button>
-                <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <MdOutlineCopyAll size={23} />
                 </button>
-                <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <BiPaste size={23} />
                 </button>
-                <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <CgScan size={23} />
                 </button>
-                <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <FaRegShareSquare size={23} />
                 </button>
-                <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <IoTrashOutline size={23} />
                 </button>
               </div>
               <div className="flex border-r-[1px] border-sky-300">
-                <button className="flex justify-center items-center py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <TbArrowsSort size={23} /> Sort <MdKeyboardArrowDown />
                 </button>
-                <button className="flex justify-center items-center py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <HiOutlineViewList size={23} /> View <MdKeyboardArrowDown />
                 </button>
               </div>
-              <button className="py-1 px-3 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+              <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                 <MdMoreHoriz size={23} />
               </button>
             </div>
@@ -183,7 +183,7 @@ const FileExplorerApp = ({
                 </div>
               </div>
 
-              <div className="flex items-center justify-center bg-transparent mx-2">
+              <div className="flex items-center justify-center mx-2 bg-transparent">
                 <div className="relative text-white focus-within:text-gray-400">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                     <button
@@ -205,7 +205,7 @@ const FileExplorerApp = ({
             </div>
           </div>
           {/* Container Content */}
-          <div className="grid grid-cols-12 w-full">
+          <div className="grid w-full grid-cols-12">
             <div className="hidden lg:grid lg:col-span-2 border-r-[1px] border-white">
               <div className="flex flex-col">
                 <div className="flex flex-row justify-start items-center bg-white bg-opacity-10 px-2 py-[1px]">
@@ -229,7 +229,7 @@ const FileExplorerApp = ({
                   : "overflow-y-scroll lg:h-[57.8vh]"
               }`}
             >
-              <table className="text-left w-full">
+              <table className="w-full text-left">
                 <thead>
                   <tr>
                     <th className="pl-2 py-1 border-r-[1px] border-white">
