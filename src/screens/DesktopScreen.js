@@ -10,7 +10,7 @@ const DesktopScreen = () => {
   return (
     <div
       style={{ backgroundImage: `url(${wallpaper})` }}
-      className="text-white bg-no-repeat bg-cover"
+      className="text-white transition-all duration-300 ease-in bg-no-repeat bg-cover"
     >
       <div className="w-screen h-screen">
         {activeWindows.length > 0 && (
