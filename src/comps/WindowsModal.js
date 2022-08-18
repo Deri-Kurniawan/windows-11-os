@@ -13,7 +13,7 @@ const WindowsModal = () => {
           <input
               type="search"
               className="w-full h-8 my-4 bg-gray-900 border-t-0 border-b-2 border-l-0 border-r-0 rounded-sm placeholder:text-white border-b-white focus:outline-none"
-              placeholder="Find a setting"
+              placeholder="Type here to search"
             />
             
           <span className='pl-4'>Pinned</span>
