@@ -6,6 +6,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { VscChromeRestore } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { icons } from "../assets";
+import { WIN_FEATURES } from "../const/winSize";
 import {
   cancelMaximizeActiveWindow,
   maximizeActiveWindow,
@@ -52,12 +53,46 @@ const CommandLineApp = ({
         ignoreDefaultError = true;
       }
 
+      if (command === "linkedin") {
+        window.open(
+          "https://linkedin.com/in/deri-kurniawan",
+          "_blank",
+          WIN_FEATURES
+        );
+        output = "Opening LinkedIn Profile";
+        ignoreDefaultError = true;
+      }
+
+      if (command === "github") {
+        window.open(
+          "https://github.com/deri-kurniawan",
+          "_blank",
+          WIN_FEATURES
+        );
+        output = "Opening GitHub Profile";
+        ignoreDefaultError = true;
+      }
+
+      if (command === "whatsapp") {
+        const textMessage = encodeURIComponent(
+          "Hello Deri Kurniawan!, [your message here]"
+        );
+        window.open(
+          `https://wa.me/+625720959031?text=${textMessage}`,
+          "_blank",
+          WIN_FEATURES
+        );
+        output = "Opening WhatsApp";
+        ignoreDefaultError = true;
+      }
+
       if (command.includes("code")) {
         window.open(
           "https://vscode.dev",
           "_blank",
-          "toolbar=yes,scrollbars=yes,resizable=yes,top=100,left=50,width=500,height=500"
+          WIN_FEATURES
         );
+        output = "Opening Visual Studio Code";
         ignoreDefaultError = true;
       }
 
@@ -78,9 +113,12 @@ const CommandLineApp = ({
           <p>
             Available commands: <br />
             help - show this help message <br />
-            clear | cls - clear the terminal screen <br />
-            cd - change directory <br />
+            github - open GitHub <br />
+            linkedin - open LinkedIn <br />
+            whatsapp - open WhatsApp <br />
             code - open VS Code <br />
+            cd - change directory <br />
+            clear | cls - clear the terminal screen <br />
             exit: close the terminal <br />
           </p>
         );
