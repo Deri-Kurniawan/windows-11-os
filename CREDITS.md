@@ -1,5 +1,5 @@
 # CREDITS
-Special Thanks For:
+Special Thanks To:
 ## 1. [wallpaperaccess.com](https://wallpaperaccess.com):
 [All the wallpaper in the following folder](https://github.com/Deri-Kurniawan/Deri-Kurniawan.github.io/tree/main/src/assets/images/wallpapers)
 
