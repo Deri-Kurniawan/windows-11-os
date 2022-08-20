@@ -13,6 +13,10 @@
 
 Deployed at Vercel - [https://deri-kurniawan.vercel.app](https://deri-kurniawan.vercel.app)
 
+## Credits
+
+Special thanks to the givers of the sources listed on [CREDITS](https://github.com/Deri-Kurniawan/Deri-Kurniawan.github.io/blob/main/CREDITS.md)
+
 ## License
 
 Released under [MIT](/LICENSE) by [@Deri-Kurniawan](https://github.com/Deri-Kurniawan).
