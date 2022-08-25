@@ -35,6 +35,7 @@ import { HiOutlineViewList } from "react-icons/hi";
 import { RiComputerFill } from "react-icons/ri";
 import { WIN_FEATURES } from "../const/winSize";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const blueprint = [
   {
@@ -81,7 +82,9 @@ const FileExplorerApp = ({
         dispatch(cancelMaximizeActiveWindow(id));
       }}
     >
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         style={
           !maximized
             ? { width: width, height: height }
@@ -282,7 +285,7 @@ const FileExplorerApp = ({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Draggable>
   );
 };

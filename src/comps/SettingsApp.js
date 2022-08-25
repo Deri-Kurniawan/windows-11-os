@@ -15,6 +15,7 @@ import {
 } from "../redux/feat/desktopSlice";
 import { Avatar } from "flowbite-react";
 import { wallpapers } from "../assets";
+import { motion } from "framer-motion";
 
 const SettingsApp = ({
   id,
@@ -39,7 +40,9 @@ const SettingsApp = ({
         dispatch(cancelMaximizeActiveWindow(id));
       }}
     >
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         style={
           !maximized
             ? { width: width, height: height }
@@ -155,7 +158,7 @@ const SettingsApp = ({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </Draggable>
   );
 };

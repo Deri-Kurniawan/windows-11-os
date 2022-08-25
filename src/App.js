@@ -6,6 +6,7 @@ import {
   setBatteryIsCharging,
   setBatteryLevel,
 } from "./redux/feat/desktopSlice";
+import { motion } from "framer-motion";
 
 function App() {
   const isScreenLocked = useSelector((state) => state.lockScreen.isLocked);
@@ -35,7 +36,16 @@ function App() {
   }, [dispatch]);
 
 
-  return isScreenLocked ? <LockScreen /> : <DesktopScreen />;
+  return isScreenLocked ? (
+    <motion.div 
+      initial={{ opacity: 0, }}
+      animate={{ opacity: 1 }}
+    >
+      <LockScreen/>
+    </motion.div>
+    ) : (
+      <DesktopScreen />
+    )
 }
 
 export default App;

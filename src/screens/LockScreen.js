@@ -6,6 +6,7 @@ import { TbWifi } from "react-icons/tb";
 import { VscEye } from "react-icons/vsc";
 import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
 import { setIsLocked } from "../redux/feat/lockScreenSlice";
+import { motion } from "framer-motion";
 
 const CONFIGS = {
   validtPINLoadingTimeout: 1000,
@@ -145,7 +146,7 @@ const LockScreen = () => {
       </div>
 
       {screenDidUnlock && (
-        <div className="absolute top-0 bottom-0 left-0 right-0 w-screen h-screen text-white backdrop-blur-xl">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute top-0 bottom-0 left-0 right-0 w-screen h-screen text-white backdrop-blur-xl">
           <div className="flex flex-col items-center justify-center mt-28">
             <img
               className="w-48 h-48 rounded-full"
@@ -162,18 +163,20 @@ const LockScreen = () => {
               <>
                 {PINAttemptIsWrong ? (
                   <>
-                    <div className="mt-7">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-7">
                       <div className="mt-4">
                         The PIN is incorrect. Try again.
                       </div>
-                    </div>
-                    <button
+                    </motion.div>
+                    <motion.button
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
                       className="mt-7 bg-white bg-opacity-30 px-14 py-2 text-center rounded-md ring-2 ring-white border-[1px] backdrop-blur-xl border-black cursor-pointer active:bg-opacity-20"
                       onClick={() => setPINAttemptIsWrong(false)}
                       autoFocus={true}
                     >
                       <span className="font-semibold">OK</span>
-                    </button>
+                    </motion.button>
                   </>
                 ) : (
                   <>
@@ -218,7 +221,7 @@ const LockScreen = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

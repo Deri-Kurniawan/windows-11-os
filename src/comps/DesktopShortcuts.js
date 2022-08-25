@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import DesktopAppShortcutButton from "../comps/DesktopAppShortcutButton";
 
@@ -6,7 +5,7 @@ const DesktopShortcuts = () => {
   const shortcutApps = useSelector((state) => state.desktop.shortcutApps);
 
   return (
-    <Fragment>
+    <>
       {shortcutApps.length > 0 && (
         <div className="h-[91vh] w-[95vw] flex flex-col flex-wrap content-start justify-start items-start">
           {shortcutApps.map((app, index) => (
@@ -14,7 +13,7 @@ const DesktopShortcuts = () => {
           ))}
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

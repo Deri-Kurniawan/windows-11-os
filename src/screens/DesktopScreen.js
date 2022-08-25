@@ -2,13 +2,16 @@ import { useSelector } from "react-redux";
 import Taskbar from "../comps/Taskbar";
 import DesktopShortcuts from "../comps/DesktopShortcuts";
 import WindowsModal from "../comps/WindowsModal";
+import { motion } from "framer-motion";
 
 const DesktopScreen = () => {
   const wallpaper = useSelector((state) => state.desktop.wallpaper);
   const activeWindows = useSelector((state) => state.desktop.activeWindows);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       style={{ backgroundImage: `url(${wallpaper})` }}
       className="text-white transition-all duration-300 ease-in bg-no-repeat bg-cover"
     >
@@ -51,7 +54,7 @@ const DesktopScreen = () => {
         <Taskbar />
       </div>
         <WindowsModal />
-    </div>
+    </motion.div>
   );
 };
 
