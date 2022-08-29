@@ -245,6 +245,19 @@ const initialState = {
         );
       },
     },
+    {
+      name: "Portfolio",
+      icon: "https://github.com/Deri-Kurniawan/Deri-Kurniawan/blob/main/assets/Brand_transparent_1024x1024.png?raw=true",
+      width: 35,
+      height: 35,
+      onClick: () => {
+        window.open(
+          "https://portfolio.deri-kurniawan.vercel.app",
+          "_blank",
+          WIN_FEATURES
+        );
+      },
+    },
   ],
 };
 
