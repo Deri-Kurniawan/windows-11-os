@@ -7,7 +7,7 @@ const DesktopShortcuts = () => {
   return (
     <>
       {shortcutApps.length > 0 && (
-        <div className="h-[91vh] w-[95vw] flex flex-col flex-wrap content-start justify-start items-start">
+        <div className="flex h-[91vh] w-[95vw] flex-col flex-wrap content-start items-start justify-start">
           {shortcutApps.map((app, index) => (
             <DesktopAppShortcutButton className="my-2" key={index} {...app} />
           ))}

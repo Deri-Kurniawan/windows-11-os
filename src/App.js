@@ -35,17 +35,13 @@ function App() {
     return () => clearInterval(interval);
   }, [dispatch]);
 
-
   return isScreenLocked ? (
-    <motion.div 
-      initial={{ opacity: 0, }}
-      animate={{ opacity: 1 }}
-    >
-      <LockScreen/>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <LockScreen />
     </motion.div>
-    ) : (
-      <DesktopScreen />
-    )
+  ) : (
+    <DesktopScreen />
+  );
 }
 
 export default App;

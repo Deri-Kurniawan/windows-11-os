@@ -50,7 +50,11 @@ const initialState = {
       width: 28,
       height: 28,
       onClick: () => {
-        window.open("https://www.google.com/search?q=Deri+Kurniawan+github", "_blank", WIN_FEATURES);
+        window.open(
+          "https://www.google.com/search?q=Deri+Kurniawan+github",
+          "_blank",
+          WIN_FEATURES
+        );
       },
     },
     {
@@ -90,7 +94,11 @@ const initialState = {
       width: 35,
       height: 35,
       onClick: () => {
-        window.open("https://www.google.com/search?q=Deri+Kurniawan+github", "_blank", WIN_FEATURES);
+        window.open(
+          "https://www.google.com/search?q=Deri+Kurniawan+github",
+          "_blank",
+          WIN_FEATURES
+        );
       },
     },
     {

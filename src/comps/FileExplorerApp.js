@@ -48,7 +48,7 @@ const blueprint = [
     size: "28.8 KB",
     modify: "25/11/2021 17:56",
   },
-]
+];
 
 const FileExplorerApp = ({
   id,
@@ -70,7 +70,7 @@ const FileExplorerApp = ({
     ...blueprint,
     ...blueprint,
     ...blueprint,
-  ])
+  ]);
   const dispatch = useDispatch();
 
   return (
@@ -90,7 +90,7 @@ const FileExplorerApp = ({
             ? { width: width, height: height }
             : { width: "100vw", height: "93vh" }
         }
-        className={`absolute inverse-toggle shadow-lg text-gray-100 text-sm subpixel-antialiased bg-gray-900 rounded-md leading-normal overflow-hidden z-10 border-[1px] border-gray-300`}
+        className={`inverse-toggle absolute z-10 overflow-hidden rounded-md border-[1px] border-gray-300 bg-gray-900 text-sm leading-normal text-gray-100 subpixel-antialiased shadow-lg`}
       >
         {/* Window Actions */}
         <div className="flex items-center justify-between">
@@ -100,7 +100,7 @@ const FileExplorerApp = ({
           >
             <div className="mr-2">
               <img
-                className="w-4 h-4"
+                className="h-4 w-4"
                 src={icons.apps.winFileExplorer}
                 alt=""
               />
@@ -118,7 +118,7 @@ const FileExplorerApp = ({
               <BsDash />
             </div>
             <div
-              className="flex items-center p-3 ml-2 hover:bg-white hover:bg-opacity-10"
+              className="ml-2 flex items-center p-3 hover:bg-white hover:bg-opacity-10"
               title={maximized ? "Restore" : "Maximize"}
               onClick={() => {
                 dispatch(maximizeActiveWindow(id));
@@ -127,7 +127,7 @@ const FileExplorerApp = ({
               {maximized ? <VscChromeRestore /> : <IoIosSquareOutline />}
             </div>
             <div
-              className="flex items-center p-3 ml-2 hover:bg-red-500"
+              className="ml-2 flex items-center p-3 hover:bg-red-500"
               title="Close"
               onClick={() => {
                 dispatch(removeActiveWindow(id));
@@ -139,47 +139,47 @@ const FileExplorerApp = ({
         </div>
         <div className="flex flex-col">
           {/* Tools */}
-          <div className="hidden lg:block border-b-[1px] border-gray-300 py-2">
-            <div className="flex flex-row w-full">
-              <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+          <div className="hidden border-b-[1px] border-gray-300 py-2 lg:block">
+            <div className="flex w-full flex-row">
+              <button className="mx-2 flex items-center justify-center rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                 <TbCirclePlus size={23} /> New <MdKeyboardArrowDown />
               </button>
               <div className="border-x-[1px] border-sky-300">
-                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <TbCut size={23} />
                 </button>
-                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <MdOutlineCopyAll size={23} />
                 </button>
-                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <BiPaste size={23} />
                 </button>
-                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <CgScan size={23} />
                 </button>
-                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <FaRegShareSquare size={23} />
                 </button>
-                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <IoTrashOutline size={23} />
                 </button>
               </div>
               <div className="flex border-r-[1px] border-sky-300">
-                <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 flex items-center justify-center rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <TbArrowsSort size={23} /> Sort <MdKeyboardArrowDown />
                 </button>
-                <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+                <button className="mx-2 flex items-center justify-center rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                   <HiOutlineViewList size={23} /> View <MdKeyboardArrowDown />
                 </button>
               </div>
-              <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
+              <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
                 <MdMoreHoriz size={23} />
               </button>
             </div>
           </div>
           {/* Navigation */}
-          <div className="hidden lg:block border-b-[1px] border-gray-300 py-2">
-            <div className="flex flex-row w-full px-1">
+          <div className="hidden border-b-[1px] border-gray-300 py-2 lg:block">
+            <div className="flex w-full flex-row px-1">
               <button className="px-1">
                 <BsArrowLeftShort size={23} />
               </button>
@@ -192,7 +192,7 @@ const FileExplorerApp = ({
               <button className="px-1">
                 <BsArrowUpShort size={23} />
               </button>
-              <div className="flex flex-1 flex-row justify-between items-center border-[1px] border-white px-2 mx-2">
+              <div className="mx-2 flex flex-1 flex-row items-center justify-between border-[1px] border-white px-2">
                 <div className="flex">
                   <button className="pr-1">
                     <FaStar color="gold" />
@@ -212,19 +212,17 @@ const FileExplorerApp = ({
                 </div>
               </div>
 
-              <div className="flex items-center justify-center mx-2 bg-transparent">
+              <div className="mx-2 flex items-center justify-center bg-transparent">
                 <div className="relative text-white focus-within:text-gray-400">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <button
-                      className="p-1 focus:outline-none focus:shadow-outline"
-                    >
+                    <button className="focus:shadow-outline p-1 focus:outline-none">
                       <VscSearch />
                     </button>
                   </span>
                   <input
                     type="search"
                     name="q"
-                    className="py-2 text-sm bg-transparent pl-10 focus:outline-none placeholder:text-white border-[1px] border-white"
+                    className="border-[1px] border-white bg-transparent py-2 pl-10 text-sm placeholder:text-white focus:outline-none"
                     placeholder="Search"
                   />
                 </div>
@@ -233,24 +231,24 @@ const FileExplorerApp = ({
           </div>
           {/* Container Content */}
           <div className="grid w-full grid-cols-12">
-            <div className="hidden lg:grid lg:col-span-2 border-r-[1px] border-white">
+            <div className="hidden border-r-[1px] border-white lg:col-span-2 lg:grid">
               <div className="flex flex-col">
-                <div className="flex flex-row justify-start items-center bg-white bg-opacity-10 px-2 py-[1px]">
+                <div className="flex flex-row items-center justify-start bg-white bg-opacity-10 px-2 py-[1px]">
                   <FaStar color="gold" className="mr-1" />
                   Quick access
                 </div>
-                <div className="flex flex-row justify-start items-center hover:bg-white hover:bg-opacity-10 px-2 py-[1px]">
+                <div className="flex flex-row items-center justify-start px-2 py-[1px] hover:bg-white hover:bg-opacity-10">
                   <BsCreditCard2FrontFill color="skyblue" className="mr-1" />
                   Desktop
                 </div>
-                <div className="flex flex-row justify-start items-center hover:bg-white hover:bg-opacity-10 px-2 py-[1px]">
+                <div className="flex flex-row items-center justify-start px-2 py-[1px] hover:bg-white hover:bg-opacity-10">
                   <RiComputerFill color="skyblue" className="mr-1" />
                   This PC
                 </div>
               </div>
             </div>
             <div
-              className={`grid col-span-12 lg:col-span-10 h-[73.5vh] ${
+              className={`col-span-12 grid h-[73.5vh] lg:col-span-10 ${
                 maximized
                   ? "scroll-y-hidden lg:h-71vh lg:overflow-y-scroll"
                   : "overflow-y-scroll lg:h-[57.8vh]"
@@ -259,26 +257,34 @@ const FileExplorerApp = ({
               <table className="w-full text-left">
                 <thead>
                   <tr>
-                    <th className="pl-2 py-1 border-r-[1px] border-white">
+                    <th className="border-r-[1px] border-white py-1 pl-2">
                       Name
                     </th>
-                    <th className="pl-2 py-1 border-r-[1px] border-white">
+                    <th className="border-r-[1px] border-white py-1 pl-2">
                       Size
                     </th>
-                    <th className="hidden lg:block pl-2 py-1 border-r-[1px] border-white">
+                    <th className="hidden border-r-[1px] border-white py-1 pl-2 lg:block">
                       Date Modified
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {files.map((file, index) => (
-                  <tr key={index} className="hover:bg-white hover:bg-opacity-10" onClick={() => {
-                    window.open(`https://deri-kurniawan.w3spaces.com/${file.name}`, "_blank", WIN_FEATURES)
-                  }}>
-                    <td className="pl-2">{file.name}</td>
-                    <td className="pl-2">{file.size}</td>
-                    <td className="hidden pl-2 lg:block">{file.modify}</td>
-                  </tr>
+                    <tr
+                      key={index}
+                      className="hover:bg-white hover:bg-opacity-10"
+                      onClick={() => {
+                        window.open(
+                          `https://deri-kurniawan.w3spaces.com/${file.name}`,
+                          "_blank",
+                          WIN_FEATURES
+                        );
+                      }}
+                    >
+                      <td className="pl-2">{file.name}</td>
+                      <td className="pl-2">{file.size}</td>
+                      <td className="hidden pl-2 lg:block">{file.modify}</td>
+                    </tr>
                   ))}
                 </tbody>
               </table>

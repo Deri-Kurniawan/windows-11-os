@@ -30,15 +30,15 @@ const Taskbar = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-0 h-[2.8em] w-screen border-black bg-transparent text-white backdrop-blur-2xl backdrop-filter z-50">
-      <div className="h-[2.8em] flex items-center justify-between">
-        <div className="flex-1 hidden lg:flex"></div>
-        <div className="flex items-center justify-start flex-1 lg:justify-center">
+    <div className="fixed bottom-0 z-50 h-[2.8em] w-screen border-black bg-transparent text-white backdrop-blur-2xl backdrop-filter">
+      <div className="flex h-[2.8em] items-center justify-between">
+        <div className="hidden flex-1 lg:flex"></div>
+        <div className="flex flex-1 items-center justify-start lg:justify-center">
           <TaskbarPinnedAppButton
             name="Start"
             icon="https://img.icons8.com/fluency/344/windows-11.png"
             onClick={(e, dispatch) => {
-              dispatch(setWinModalToggled(!winModalToggled))
+              dispatch(setWinModalToggled(!winModalToggled));
             }}
           />
           {pinnedApps.length > 0 && (
@@ -53,8 +53,8 @@ const Taskbar = () => {
             </>
           )}
         </div>
-        <div className="flex flex-row justify-end flex-1">
-          <div className="flex h-[2.6em] m-[.1em] border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter">
+        <div className="flex flex-1 flex-row justify-end">
+          <div className="m-[.1em] flex h-[2.6em] border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter">
             <div
               className="flex flex-row items-center justify-center"
               onClick={() => null}
@@ -63,7 +63,7 @@ const Taskbar = () => {
             </div>
           </div>
           <div
-            className="flex h-[2.6em] m-[.1em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
+            className="m-[.1em] flex h-[2.6em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
             onClick={() => null}
           >
             <div className="flex flex-row items-center justify-center px-2">
@@ -97,7 +97,7 @@ const Taskbar = () => {
             </div>
           </div>
           <div
-            className="h-[2.6em] my-[.1em] flex border-black bg-transparent rounded-md hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
+            className="my-[.1em] flex h-[2.6em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter"
             onClick={() => null}
           >
             <div
@@ -111,7 +111,7 @@ const Taskbar = () => {
             </div>
           </div>
           <div
-            className="flex justify-center items-center h-[2.6em] m-[.1em] w-2 opacity-0 hover:opacity-100"
+            className="m-[.1em] flex h-[2.6em] w-2 items-center justify-center opacity-0 hover:opacity-100"
             onClick={() => null}
           >
             <span>|</span>

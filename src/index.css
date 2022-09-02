@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-    @apply overflow-hidden select-none;
+  @apply select-none overflow-hidden;
 }

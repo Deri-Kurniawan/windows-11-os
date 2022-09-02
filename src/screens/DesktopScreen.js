@@ -13,9 +13,9 @@ const DesktopScreen = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       style={{ backgroundImage: `url(${wallpaper})` }}
-      className="text-white transition-all duration-300 ease-in bg-no-repeat bg-cover"
+      className="bg-cover bg-no-repeat text-white transition-all duration-300 ease-in"
     >
-      <div className="w-screen h-screen">
+      <div className="h-screen w-screen">
         {activeWindows.length > 0 && (
           <>
             {activeWindows
@@ -53,7 +53,7 @@ const DesktopScreen = () => {
         <DesktopShortcuts />
         <Taskbar />
       </div>
-        <WindowsModal />
+      <WindowsModal />
     </motion.div>
   );
 };

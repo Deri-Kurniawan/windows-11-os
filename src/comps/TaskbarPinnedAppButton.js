@@ -13,7 +13,7 @@ const TaskbarAppButton = ({
 
   return (
     <button
-      className={`${className} h-[2.6em] w-[2.6em] m-[.1em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter`}
+      className={`${className} m-[.1em] h-[2.6em] w-[2.6em] rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter`}
       title={name}
       onClick={(e) => onClick(e, dispatch)}
     >

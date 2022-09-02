@@ -14,7 +14,7 @@ const DesktopAppShortcutButton = ({
 
   return (
     <button
-      className={`${className} w-[5.2em] m-[.1em] p-1 rounded-md border-black bg-transparent hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter`}
+      className={`${className} m-[.1em] w-[5.2em] rounded-md border-black bg-transparent p-1 hover:bg-white hover:bg-opacity-10 hover:backdrop-blur-3xl hover:backdrop-filter`}
       onClick={(e) => onClick(e, dispatch)}
     >
       <div className="relative">
@@ -25,7 +25,7 @@ const DesktopAppShortcutButton = ({
           width={width}
           height={height}
         />
-        <p className="text-xs text-center">{name}</p>
+        <p className="text-center text-xs">{name}</p>
         <FaExternalLinkSquareAlt
           size={13}
           color="white"
