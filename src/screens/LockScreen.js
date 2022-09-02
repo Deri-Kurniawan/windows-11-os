@@ -7,6 +7,8 @@ import { VscEye } from "react-icons/vsc";
 import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
 import { setIsLocked } from "../redux/feat/lockScreenSlice";
 import { motion } from "framer-motion";
+import { profiles } from "../assets";
+import NotificationFrom from "../comps/NotificationFrom";
 
 const CONFIGS = {
   validtPINLoadingTimeout: 1000,
@@ -18,6 +20,9 @@ const CONFIGS = {
   },
 };
 
+const forgotPINTimeout = (ms = 3000) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 const LockScreen = () => {
   const wallpaper = useSelector((state) => state.lockScreen.wallpaper);
   const profileImage = useSelector((state) => state.desktop.profileImage);
@@ -26,6 +31,8 @@ const LockScreen = () => {
   const [screenDidUnlock, setScreenDidUnlock] = useState(false);
   const [showPINText, setShowPINText] = useState(false);
   const [PINAttemptIsWrong, setPINAttemptIsWrong] = useState(false);
+
+  const [PINForgotted, setPINForgotted] = useState(false);
 
   const [hours, setHours] = useState(moment().format(CONFIGS.timeFormat.hours));
   const [minutes, setMinutes] = useState(
@@ -114,14 +121,14 @@ const LockScreen = () => {
         style={{
           backgroundImage: `url('${wallpaper}')`,
         }}
-        className="text-white bg-no-repeat bg-cover"
+        className="bg-cover bg-no-repeat text-white"
         onClick={() => setScreenDidUnlock(true)}
       >
-        <div className="w-screen h-screen">
+        <div className="h-screen w-screen">
           <div>
             <div className="flex flex-col items-center justify-center">
               <div>
-                <div className="flex items-center mt-16 font-semibold text-8xl">
+                <div className="mt-16 flex items-center text-8xl font-semibold">
                   <span>{hours}</span>
                   <span>&#58;</span>
                   <span>{minutes}</span>
@@ -146,24 +153,32 @@ const LockScreen = () => {
       </div>
 
       {screenDidUnlock && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute top-0 bottom-0 left-0 right-0 w-screen h-screen text-white backdrop-blur-xl">
-          <div className="flex flex-col items-center justify-center mt-28">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute top-0 bottom-0 left-0 right-0 h-screen w-screen text-white backdrop-blur-xl"
+        >
+          <div className="mt-28 flex flex-col items-center justify-center">
             <img
-              className="w-48 h-48 rounded-full"
+              className="h-48 w-48 rounded-full"
               src={profileImage}
               alt="User Profile"
             />
             <h1 className="mt-4 text-2xl font-semibold">Deri Kurniawan</h1>
             {loginIsSuccess ? (
-              <div className="flex flex-col items-center justify-center mt-3">
-                <div className="w-16 h-16 my-3 bg-transparent border-t-4 border-r-4 border-white border-dotted rounded-full animate-spin"></div>
+              <div className="mt-3 flex flex-col items-center justify-center">
+                <div className="my-3 h-16 w-16 animate-spin rounded-full border-t-4 border-r-4 border-dotted border-white bg-transparent"></div>
                 <div className="mt-3 text-xl font-semibold">Welcome</div>
               </div>
             ) : (
               <>
                 {PINAttemptIsWrong ? (
                   <>
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-7">
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="mt-7"
+                    >
                       <div className="mt-4">
                         The PIN is incorrect. Try again.
                       </div>
@@ -171,7 +186,7 @@ const LockScreen = () => {
                     <motion.button
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="mt-7 bg-white bg-opacity-30 px-14 py-2 text-center rounded-md ring-2 ring-white border-[1px] backdrop-blur-xl border-black cursor-pointer active:bg-opacity-20"
+                      className="mt-7 cursor-pointer rounded-md border-[1px] border-black bg-white bg-opacity-30 px-14 py-2 text-center ring-2 ring-white backdrop-blur-xl active:bg-opacity-20"
                       onClick={() => setPINAttemptIsWrong(false)}
                       autoFocus={true}
                     >
@@ -180,9 +195,9 @@ const LockScreen = () => {
                   </>
                 ) : (
                   <>
-                    <div className="bg-gray-800 rounded-sm mt-7 bg-opacity-70 backdrop-blur-xl">
+                    <div className="mt-7 rounded-sm bg-gray-800 bg-opacity-70 backdrop-blur-xl">
                       <input
-                        className="w-[15em] h-[2em] md:w-[20em] pr-[1.85em] bg-transparent placeholder-white px-2 tracking-widest rounded-sm"
+                        className="h-[2em] w-[15em] rounded-sm bg-transparent px-2 pr-[1.85em] tracking-widest placeholder-white md:w-[20em]"
                         type={showPINText ? "text" : "password"}
                         inputMode="numeric"
                         pattern="[0-9]*"
@@ -198,8 +213,13 @@ const LockScreen = () => {
                       </div>
                     </div>
                     <div
-                      className="p-1 mt-4 cursor-pointer hover:text-gray-300"
-                      onClick={() => alert(`Your PIN is ${validPIN}`)}
+                      className="mt-4 cursor-pointer p-1 hover:text-gray-300"
+                      onClick={() => {
+                        setPINForgotted(true);
+                        forgotPINTimeout(20000).then(() =>
+                          setPINForgotted(false)
+                        );
+                      }}
                     >
                       I forgot my PIN
                     </div>
@@ -207,7 +227,7 @@ const LockScreen = () => {
                 )}
               </>
             )}
-            <div className="absolute hidden lg:block bottom-10 right-10">
+            <div className="absolute bottom-10 right-10 hidden lg:block">
               <div className="flex items-center justify-center">
                 <button className="mx-2" title="Internet">
                   <TbWifi size={30} />
@@ -221,6 +241,25 @@ const LockScreen = () => {
               </div>
             </div>
           </div>
+        </motion.div>
+      )}
+      {PINForgotted && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute bottom-0 left-0 z-50 p-5"
+        >
+          <NotificationFrom
+            from="Deri Kurniawan"
+            image={profiles.deri}
+            message={
+              <>
+                Hello There!
+                <br /> The Secret PIN is{" "}
+                <span className="font-semibold">123123</span>
+              </>
+            }
+          />
         </motion.div>
       )}
     </>
