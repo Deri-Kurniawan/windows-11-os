@@ -93,7 +93,7 @@ const desktopSlice = createSlice({
     /**
      *
      * @param {*} state
-     * @param {object} action { id, maximized: boolean }
+     * @param {object} action id
      */
     maximizeActiveWindow: (state, action) => {
       const id = action.payload;

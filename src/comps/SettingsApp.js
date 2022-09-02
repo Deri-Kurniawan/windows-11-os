@@ -48,7 +48,7 @@ const SettingsApp = ({
             ? { width: width, height: height }
             : { width: "100vw", height: "93vh" }
         }
-        className={`inverse-toggle absolute z-10 overflow-hidden rounded-md border-[1px]  border-gray-300 bg-transparent text-sm leading-normal text-gray-100 subpixel-antialiased shadow-lg backdrop-blur-2xl backdrop-filter`}
+        className="inverse-toggle absolute z-10 overflow-hidden rounded-md border-[1px]  border-gray-300 bg-transparent text-sm leading-normal text-gray-100 subpixel-antialiased shadow-lg backdrop-blur-2xl backdrop-filter"
       >
         <div className="flex items-center justify-between">
           <div
@@ -91,21 +91,25 @@ const SettingsApp = ({
           </div>
         </div>
         <div className="grid grid-cols-12 gap-2">
-          <div className="col-span-3 hidden px-2 pb-10 lg:grid">
+          <div className="hidden px-2 pb-10 md:col-span-4 lg:col-span-3 lg:grid">
             {/* Sidebar */}
             <div className="mt-2">
               {/* Header */}
               <div className="flex flex-row items-center justify-start">
-                <Avatar img={profileImage} size="md" rounded={true} />
+                <img
+                  className="h-8 w-8 rounded-full"
+                  src={profileImage}
+                  alt=""
+                />
                 <div className="ml-3 flex flex-col items-start justify-center">
                   <p>Deri Kurniawan</p>
-                  <p>deri.netuchi@gmail</p>
+                  <p>deri.netuchi@gmail.com</p>
                 </div>
               </div>
               {/* Search */}
               <input
                 type="search"
-                className="my-4 h-8 w-full rounded-sm border-t-0 border-b-2 border-l-0 border-r-0 border-b-white bg-gray-900 placeholder:text-white focus:outline-none"
+                className="my-4 h-8 w-full rounded-sm border-t-0 border-b-2 border-l-0 border-r-0 border-b-white bg-transparent placeholder:text-white focus:outline-none"
                 placeholder="Find a setting"
               />
               {/* Settings Options */}
@@ -120,7 +124,7 @@ const SettingsApp = ({
             </div>
           </div>
           {/* content */}
-          <div className="col-span-12 grid lg:col-span-9">
+          <div className="col-span-12 grid md:col-span-8 lg:col-span-9">
             <div className="px-5 pb-5 lg:p-2 lg:px-2">
               <h1 className="mb-3 text-xl font-bold">Personalization</h1>
               <div className="flex flex-col items-start justify-start lg:flex-row">
