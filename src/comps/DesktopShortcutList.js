@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import DesktopAppShortcutButton from "../comps/DesktopAppShortcutButton";
+import DesktopShortcutItem from "./DesktopShortcutItem";
 
-const DesktopShortcuts = () => {
+const DesktopShortcutList = () => {
   const shortcutApps = useSelector((state) => state.desktop.shortcutApps);
 
   return (
@@ -9,7 +9,7 @@ const DesktopShortcuts = () => {
       {shortcutApps.length > 0 && (
         <div className="flex h-[91vh] w-[95vw] flex-col flex-wrap content-start items-start justify-start">
           {shortcutApps.map((app, index) => (
-            <DesktopAppShortcutButton className="my-2" key={index} {...app} />
+            <DesktopShortcutItem className="my-2" key={index} {...app} />
           ))}
         </div>
       )}
@@ -17,4 +17,4 @@ const DesktopShortcuts = () => {
   );
 };
 
-export default DesktopShortcuts;
+export default DesktopShortcutList;

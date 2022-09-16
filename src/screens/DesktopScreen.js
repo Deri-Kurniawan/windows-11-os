@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Taskbar from "../comps/Taskbar";
-import DesktopShortcuts from "../comps/DesktopShortcuts";
+import DesktopShortcutList from "../comps/DesktopShortcutList";
 import WindowsModal from "../comps/WindowsModal";
 import { motion } from "framer-motion";
 
@@ -50,7 +50,7 @@ const DesktopScreen = () => {
               )}
           </>
         )}
-        <DesktopShortcuts />
+        <DesktopShortcutList />
         <Taskbar />
       </div>
       <WindowsModal />

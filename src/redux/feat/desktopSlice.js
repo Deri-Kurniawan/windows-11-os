@@ -9,7 +9,7 @@ const desktopSlice = createSlice({
     activeWindows: [...initialState.activeWindows],
     wallpaper: wallpapers[0],
     battery: {
-      charging: false,
+      isCharging: false,
       level: 0,
     },
     winModalToggled: false,
@@ -22,7 +22,7 @@ const desktopSlice = createSlice({
      * @param {*} state automatically generated
      * @param {require} action import image
      */
-    setWallpaper: (state, action) => {
+    setDesktopWallpaper: (state, action) => {
       state.wallpaper = wallpapers[action.payload];
     },
     /**
@@ -128,7 +128,7 @@ const desktopSlice = createSlice({
      * @param {boolean} action true or false
      */
     setBatteryIsCharging: (state, action) => {
-      state.battery.charging = action.payload;
+      state.battery.isCharging = action.payload;
     },
     /**
      * Set the battery level
@@ -142,7 +142,7 @@ const desktopSlice = createSlice({
 });
 
 export const {
-  setWallpaper,
+  setDesktopWallpaper,
   setProfileImage,
   newActiveWindow,
   removeActiveWindow,

@@ -10,42 +10,44 @@ import {
 import { useEffect, useState } from "react";
 
 const BatteryIcon = (props) => {
-  const charging = useSelector((state) => state.desktop.battery.charging);
-  const level = useSelector((state) => state.desktop.battery.level);
+  const isCharging = useSelector((state) => state.desktop.battery.isCharging);
+  const batteryLevel = useSelector((state) => state.desktop.battery.level);
   const [title, setTitle] = useState("");
 
-  const _setTitleProp = (charging, level) => {
-    if (charging) {
+  const _setTitleProp = (isCharging, batteryLevel) => {
+    if (isCharging) {
       setTitle(
-        `Battery status: ${(level * 100).toFixed(0)}% available (plugged in)`
+        `Battery status: ${(batteryLevel * 100).toFixed(
+          0
+        )}% available (plugged in)`
       );
       return;
     }
-    setTitle(`Battery status: ${(level * 100).toFixed(0)}% remaining`);
+    setTitle(`Battery status: ${(batteryLevel * 100).toFixed(0)}% remaining`);
   };
 
   useEffect(() => {
-    _setTitleProp(charging, level);
-  }, [charging, level]);
+    _setTitleProp(isCharging, batteryLevel);
+  }, [isCharging, batteryLevel]);
 
-  if (charging === true) {
+  if (isCharging === true) {
     return <TbBatteryCharging2 {...props} title={title} />;
   }
 
-  if (!level || level <= 0) {
+  if (!batteryLevel || batteryLevel <= 0) {
     return <TbBatteryOff {...props} title={title} />;
   }
 
-  if (level > 0 && level <= 0.25) {
+  if (batteryLevel > 0 && batteryLevel <= 0.25) {
     return <TbBattery1 {...props} title={title} />;
   }
-  if (level > 0.25 && level <= 0.5) {
+  if (batteryLevel > 0.25 && batteryLevel <= 0.5) {
     return <TbBattery2 {...props} title={title} />;
   }
-  if (level > 0.5 && level <= 0.75) {
+  if (batteryLevel > 0.5 && batteryLevel <= 0.75) {
     return <TbBattery3 {...props} title={title} />;
   }
-  if (level > 0.75 && level <= 1) {
+  if (batteryLevel > 0.75 && batteryLevel <= 1) {
     return <TbBattery4 {...props} title={title} />;
   }
 };

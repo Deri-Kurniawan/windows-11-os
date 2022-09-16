@@ -5,14 +5,14 @@ import BatteryIcon from "../comps/BatteryIcon";
 import { TbWifi } from "react-icons/tb";
 import { VscEye } from "react-icons/vsc";
 import { IoAccessibilityOutline, IoPower } from "react-icons/io5";
-import { setIsLocked } from "../redux/feat/lockScreenSlice";
+import { setDesktopIsLocked } from "../redux/feat/lockScreenSlice";
 import { motion } from "framer-motion";
 import { profiles } from "../assets";
 import NotificationFrom from "../comps/NotificationFrom";
 
 const CONFIGS = {
-  validtPINLoadingTimeout: 1000,
-  hidePINAutoTimeout: 3000,
+  loadingAfterLoginIsSuccessOnMs: 1000,
+  autoHidePINOnMs: 3000,
   timeFormat: {
     hours: "HH",
     minutes: "mm",
@@ -20,19 +20,19 @@ const CONFIGS = {
   },
 };
 
-const forgotPINTimeout = (ms = 3000) =>
+const promiseTimeout = (ms = 3000) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
 const LockScreen = () => {
   const wallpaper = useSelector((state) => state.lockScreen.wallpaper);
   const profileImage = useSelector((state) => state.desktop.profileImage);
   const validPIN = useSelector((state) => state.lockScreen.validPIN);
-  const [loginIsSuccess, setLoginIsSuccess] = useState(false);
-  const [screenDidUnlock, setScreenDidUnlock] = useState(false);
-  const [showPINText, setShowPINText] = useState(false);
-  const [PINAttemptIsWrong, setPINAttemptIsWrong] = useState(false);
 
-  const [PINForgotted, setPINForgotted] = useState(false);
+  const [loginIsSuccess, setLoginIsSuccess] = useState(false);
+  const [PINInputScreen, setPINInputScreen] = useState(false);
+  const [PINTextIsShowed, setPINTextIsShowed] = useState(false);
+  const [PINAttemptIsWrong, setPINAttemptIsWrong] = useState(false);
+  const [helpForgotPIN, setHelpForgotPIN] = useState(false);
 
   const [hours, setHours] = useState(moment().format(CONFIGS.timeFormat.hours));
   const [minutes, setMinutes] = useState(
@@ -44,7 +44,7 @@ const LockScreen = () => {
 
   const dispatch = useDispatch();
 
-  const onChangePIN = ({ target }) => {
+  const changePINHandler = ({ target }) => {
     target.value = target.value.trim();
     const PIN = target.value;
 
@@ -53,23 +53,23 @@ const LockScreen = () => {
         setLoginIsSuccess(true);
 
         setTimeout(() => {
-          setShowPINText(false);
-          setScreenDidUnlock(false);
-          dispatch(setIsLocked(false));
+          setPINTextIsShowed(false);
+          setPINInputScreen(false);
+          dispatch(setDesktopIsLocked(false));
           setLoginIsSuccess(false);
-        }, CONFIGS.validtPINLoadingTimeout);
+        }, CONFIGS.loadingAfterLoginIsSuccessOnMs);
         return;
       }
       setPINAttemptIsWrong(true);
     }
   };
 
-  const onClickShowPIN = () => {
-    setShowPINText(!showPINText);
+  const clickShowPINHandler = () => {
+    setPINTextIsShowed(!PINTextIsShowed);
   };
 
   useEffect(() => {
-    const updateTimeInterval = setInterval(() => {
+    const updateTimePeriodically = setInterval(() => {
       const { hours, minutes, dayDateMonth } = CONFIGS.timeFormat;
       const current = {
         hours: moment().format(hours),
@@ -82,38 +82,38 @@ const LockScreen = () => {
       setDayDateMonth(current.dayDateMonth);
     }, 1000);
 
-    const keydownListenerHandle = (e) => {
+    const keydownEventHandler = (e) => {
       if (
         e.code === "Space" ||
         e.code === "Enter" ||
         e.code === "NumpadEnter"
       ) {
-        setScreenDidUnlock(true);
+        setPINInputScreen(true);
       }
 
       if (e.code === "Escape") {
-        setScreenDidUnlock(false);
-        setShowPINText(false);
+        setPINInputScreen(false);
+        setPINTextIsShowed(false);
       }
     };
 
-    window.addEventListener("keydown", keydownListenerHandle);
+    window.addEventListener("keydown", keydownEventHandler);
 
     return () => {
-      clearInterval(updateTimeInterval);
-      window.removeEventListener("keydown", keydownListenerHandle);
+      clearInterval(updateTimePeriodically);
+      window.removeEventListener("keydown", keydownEventHandler);
     };
   }, []);
 
   useEffect(() => {
-    if (showPINText === true) {
+    if (PINTextIsShowed === true) {
       const timeout = setTimeout(() => {
-        setShowPINText(false);
-      }, CONFIGS.hidePINAutoTimeout);
+        setPINTextIsShowed(false);
+      }, CONFIGS.autoHidePINOnMs);
 
       return () => clearTimeout(timeout);
     }
-  }, [showPINText]);
+  }, [PINTextIsShowed]);
 
   return (
     <>
@@ -122,7 +122,7 @@ const LockScreen = () => {
           backgroundImage: `url('${wallpaper}')`,
         }}
         className="bg-cover bg-no-repeat text-white"
-        onClick={() => setScreenDidUnlock(true)}
+        onClick={() => setPINInputScreen(true)}
       >
         <div className="h-screen w-screen">
           <div>
@@ -152,7 +152,7 @@ const LockScreen = () => {
         </div>
       </div>
 
-      {screenDidUnlock && (
+      {PINInputScreen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -198,16 +198,16 @@ const LockScreen = () => {
                     <div className="mt-7 rounded-sm bg-gray-800 bg-opacity-70 backdrop-blur-xl">
                       <input
                         className="h-[2em] w-[15em] rounded-sm bg-transparent px-2 pr-[1.85em] tracking-widest placeholder-white md:w-[20em]"
-                        type={showPINText ? "text" : "password"}
+                        type={PINTextIsShowed ? "text" : "password"}
                         inputMode="numeric"
                         pattern="[0-9]*"
                         maxLength={6}
-                        autoFocus={screenDidUnlock}
+                        autoFocus={PINInputScreen}
                         placeholder="PIN"
-                        onChange={onChangePIN}
+                        onChange={changePINHandler}
                       />
                       <div className="absolute top-[2.5px] right-[2px] p-1">
-                        <button onClick={onClickShowPIN}>
+                        <button onClick={clickShowPINHandler}>
                           <VscEye size={18} />
                         </button>
                       </div>
@@ -215,9 +215,9 @@ const LockScreen = () => {
                     <div
                       className="mt-4 cursor-pointer p-1 hover:text-gray-300"
                       onClick={() => {
-                        setPINForgotted(true);
-                        forgotPINTimeout(20000).then(() =>
-                          setPINForgotted(false)
+                        setHelpForgotPIN(true);
+                        promiseTimeout(20000).then(() =>
+                          setHelpForgotPIN(false)
                         );
                       }}
                     >
@@ -243,7 +243,7 @@ const LockScreen = () => {
           </div>
         </motion.div>
       )}
-      {PINForgotted && (
+      {helpForgotPIN && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -256,7 +256,7 @@ const LockScreen = () => {
               <>
                 Hello There!
                 <br /> The Secret PIN is{" "}
-                <span className="font-semibold">123123</span>
+                <span className="font-semibold">{validPIN}</span>
               </>
             }
           />

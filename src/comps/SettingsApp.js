@@ -11,9 +11,8 @@ import {
   maximizeActiveWindow,
   minimizeActiveWindow,
   removeActiveWindow,
-  setWallpaper,
+  setDesktopWallpaper,
 } from "../redux/feat/desktopSlice";
-import { Avatar } from "flowbite-react";
 import { wallpapers } from "../assets";
 import { motion } from "framer-motion";
 
@@ -71,7 +70,7 @@ const SettingsApp = ({
               <BsDash />
             </div>
             <div
-              className="ml-2 flex items-center p-3 hover:bg-white hover:bg-opacity-10"
+              className="flex items-center p-3 ml-2 hover:bg-white hover:bg-opacity-10"
               title={maximized ? "Restore" : "Maximize"}
               onClick={() => {
                 dispatch(maximizeActiveWindow(id));
@@ -80,7 +79,7 @@ const SettingsApp = ({
               {maximized ? <VscChromeRestore /> : <IoIosSquareOutline />}
             </div>
             <div
-              className="ml-2 flex items-center p-3 hover:bg-red-500"
+              className="flex items-center p-3 ml-2 hover:bg-red-500"
               title="Close"
               onClick={() => {
                 dispatch(removeActiveWindow(id));
@@ -97,11 +96,11 @@ const SettingsApp = ({
               {/* Header */}
               <div className="flex flex-row items-center justify-start">
                 <img
-                  className="h-8 w-8 rounded-full"
+                  className="w-8 h-8 rounded-full"
                   src={profileImage}
                   alt=""
                 />
-                <div className="ml-3 flex flex-col items-start justify-center">
+                <div className="flex flex-col items-start justify-center ml-3">
                   <p>Deri Kurniawan</p>
                   <p>deri.netuchi@gmail.com</p>
                 </div>
@@ -109,12 +108,12 @@ const SettingsApp = ({
               {/* Search */}
               <input
                 type="search"
-                className="my-4 h-8 w-full rounded-sm border-t-0 border-b-2 border-l-0 border-r-0 border-b-white bg-transparent placeholder:text-white focus:outline-none"
+                className="w-full h-8 my-4 bg-transparent border-t-0 border-b-2 border-l-0 border-r-0 rounded-sm border-b-white placeholder:text-white focus:outline-none"
                 placeholder="Find a setting"
               />
               {/* Settings Options */}
               <div className="flex flex-col items-start justify-start">
-                <div className="flex w-full flex-row items-center justify-start rounded-md bg-transparent bg-white bg-opacity-10 p-2 backdrop-blur-3xl backdrop-filter">
+                <div className="flex flex-row items-center justify-start w-full p-2 bg-transparent bg-white rounded-md bg-opacity-10 backdrop-blur-3xl backdrop-filter">
                   <div className="mr-2">
                     <FaPaintBrush size={18} />
                   </div>
@@ -124,7 +123,7 @@ const SettingsApp = ({
             </div>
           </div>
           {/* content */}
-          <div className="col-span-12 grid md:col-span-8 lg:col-span-9">
+          <div className="grid col-span-12 md:col-span-8 lg:col-span-9">
             <div className="px-5 pb-5 lg:p-2 lg:px-2">
               <h1 className="mb-3 text-xl font-bold">Personalization</h1>
               <div className="flex flex-col items-start justify-start lg:flex-row">
@@ -135,17 +134,17 @@ const SettingsApp = ({
                     alt=""
                   />
                 </div>
-                <div className="mt-3 flex flex-1 flex-col lg:mt-0">
-                  <h2 className="text-md font-bold">Select a theme to apply</h2>
+                <div className="flex flex-col flex-1 mt-3 lg:mt-0">
+                  <h2 className="font-bold text-md">Select a theme to apply</h2>
 
-                  <div className="grid-row mt-2 grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-3 gap-2 mt-2 grid-row">
                     {wallpapers.length > 0 && (
                       <>
                         {wallpapers.map((wallpaper, index) => (
                           <button
                             key={index}
                             className="rounded-lg hover:ring-blue-300 active:opacity-50"
-                            onClick={() => dispatch(setWallpaper(index))}
+                            onClick={() => dispatch(setDesktopWallpaper(index))}
                           >
                             <img
                               className="rounded-lg"

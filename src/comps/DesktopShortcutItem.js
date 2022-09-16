@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { FaExternalLinkSquareAlt } from "react-icons/fa";
 
-const DesktopAppShortcutButton = ({
+const DesktopShortcutItem = ({
   className = "",
   name = "Unnamed",
   icon,
@@ -21,11 +21,11 @@ const DesktopAppShortcutButton = ({
         <img
           className="m-auto"
           src={icon}
-          alt={`${name} Icon`}
+          alt={`${name.toLowerCase()}_icon`}
           width={width}
           height={height}
         />
-        <p className="text-center text-xs">{name}</p>
+        <p className="text-xs text-center">{name}</p>
         <FaExternalLinkSquareAlt
           size={13}
           color="white"
@@ -37,4 +37,4 @@ const DesktopAppShortcutButton = ({
   );
 };
 
-export default DesktopAppShortcutButton;
+export default DesktopShortcutItem;

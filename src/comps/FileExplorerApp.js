@@ -78,7 +78,7 @@ const FileExplorerApp = ({
       handle="#draggable"
       defaultPosition={{ x: maximized ? 0 : y, y: maximized ? 0 : x }}
       position={maximized ? { x: 0, y: 0 } : null}
-      onDrag={(e, data) => {
+      onDrag={() => {
         dispatch(cancelMaximizeActiveWindow(id));
       }}
     >
@@ -100,7 +100,7 @@ const FileExplorerApp = ({
           >
             <div className="mr-2">
               <img
-                className="h-4 w-4"
+                className="w-4 h-4"
                 src={icons.apps.winFileExplorer}
                 alt=""
               />
@@ -118,7 +118,7 @@ const FileExplorerApp = ({
               <BsDash />
             </div>
             <div
-              className="ml-2 flex items-center p-3 hover:bg-white hover:bg-opacity-10"
+              className="flex items-center p-3 ml-2 hover:bg-white hover:bg-opacity-10"
               title={maximized ? "Restore" : "Maximize"}
               onClick={() => {
                 dispatch(maximizeActiveWindow(id));
@@ -127,7 +127,7 @@ const FileExplorerApp = ({
               {maximized ? <VscChromeRestore /> : <IoIosSquareOutline />}
             </div>
             <div
-              className="ml-2 flex items-center p-3 hover:bg-red-500"
+              className="flex items-center p-3 ml-2 hover:bg-red-500"
               title="Close"
               onClick={() => {
                 dispatch(removeActiveWindow(id));
@@ -140,46 +140,46 @@ const FileExplorerApp = ({
         <div className="flex flex-col">
           {/* Tools */}
           <div className="hidden border-b-[1px] border-gray-300 py-2 lg:block">
-            <div className="flex w-full flex-row">
-              <button className="mx-2 flex items-center justify-center rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+            <div className="flex flex-row w-full">
+              <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                 <TbCirclePlus size={23} /> New <MdKeyboardArrowDown />
               </button>
               <div className="border-x-[1px] border-sky-300">
-                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <TbCut size={23} />
                 </button>
-                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <MdOutlineCopyAll size={23} />
                 </button>
-                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <BiPaste size={23} />
                 </button>
-                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <CgScan size={23} />
                 </button>
-                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <FaRegShareSquare size={23} />
                 </button>
-                <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <IoTrashOutline size={23} />
                 </button>
               </div>
               <div className="flex border-r-[1px] border-sky-300">
-                <button className="mx-2 flex items-center justify-center rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <TbArrowsSort size={23} /> Sort <MdKeyboardArrowDown />
                 </button>
-                <button className="mx-2 flex items-center justify-center rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+                <button className="flex items-center justify-center px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                   <HiOutlineViewList size={23} /> View <MdKeyboardArrowDown />
                 </button>
               </div>
-              <button className="mx-2 rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10">
+              <button className="px-3 py-1 mx-2 rounded-md hover:bg-white hover:bg-opacity-10">
                 <MdMoreHoriz size={23} />
               </button>
             </div>
           </div>
           {/* Navigation */}
           <div className="hidden border-b-[1px] border-gray-300 py-2 lg:block">
-            <div className="flex w-full flex-row px-1">
+            <div className="flex flex-row w-full px-1">
               <button className="px-1">
                 <BsArrowLeftShort size={23} />
               </button>
@@ -212,10 +212,10 @@ const FileExplorerApp = ({
                 </div>
               </div>
 
-              <div className="mx-2 flex items-center justify-center bg-transparent">
+              <div className="flex items-center justify-center mx-2 bg-transparent">
                 <div className="relative text-white focus-within:text-gray-400">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                    <button className="focus:shadow-outline p-1 focus:outline-none">
+                    <button className="p-1 focus:shadow-outline focus:outline-none">
                       <VscSearch />
                     </button>
                   </span>

@@ -14,7 +14,7 @@ export const lockScreenSlice = createSlice({
      * @param {*} state automatically generated
      * @param {require} action import image
      */
-    setWallpaper: (state, action) => {
+    setLockScreenWallpaper: (state, action) => {
       state.wallpaper = action.payload;
     },
     /**
@@ -22,12 +22,13 @@ export const lockScreenSlice = createSlice({
      * @param {*} state automatically generated
      * @param {boolean} action true or false
      */
-    setIsLocked: (state, action) => {
+    setDesktopIsLocked: (state, action) => {
       state.isLocked = action.payload;
     },
   },
 });
 
-export const { setWallpaper, setIsLocked } = lockScreenSlice.actions;
+export const { setLockScreenWallpaper, setDesktopIsLocked } =
+  lockScreenSlice.actions;
 
 export default lockScreenSlice.reducer;
