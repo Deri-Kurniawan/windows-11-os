@@ -120,7 +120,7 @@ const SignInWithPIN = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         ref={refInputPIN}
-                        className="h-[2em] w-[15em] rounded-sm bg-transparent px-2 pr-[1.85em] text-white placeholder-white md:w-[20em] border-b-[1px] border-blue-400"
+                        className="h-[2em] w-[15em] rounded-sm bg-transparent px-2 pr-[1.85em] text-white placeholder-white md:w-[20em] border-b-[3px] border-blue-400"
                         type="password"
                         inputMode="numeric"
                         pattern="[0-9]*"
