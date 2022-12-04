@@ -1,8 +1,10 @@
-import regularDark from "./systems/wallpapers/regularDark.jpg";
-import regularLight from "./systems/wallpapers/regularLight.jpg";
-import sweepDark from "./systems/wallpapers/sweepDark.jpg";
-import sweepLight from "./systems/wallpapers/sweepLight.jpg";
-import sweepVeryPeri from "./systems/wallpapers/sweepVeryPeri.jpg";
+import regularDark from "./systems/wallpapers/regularDark.webp";
+import regularLight from "./systems/wallpapers/regularLight.webp";
+import sweepDark from "./systems/wallpapers/sweepDark.webp";
+import sweepLight from "./systems/wallpapers/sweepLight.webp";
+import sweepVeryPeri from "./systems/wallpapers/sweepVeryPeri.webp";
+
+import spinner1 from "./systems/loading/spinner1.png";
 
 export type WallpapersType = {
   name: string;
@@ -45,4 +47,7 @@ export default {
       dark: false,
     },
   ],
+  loading: {
+    spinner1,
+  },
 };
