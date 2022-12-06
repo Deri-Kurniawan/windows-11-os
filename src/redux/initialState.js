@@ -255,7 +255,7 @@ const initialState = {
     },
     {
       name: "Portfolio",
-      icon: "https://github.com/Deri-Kurniawan/Deri-Kurniawan/blob/main/assets/Brand_transparent_1024x1024.png?raw=true",
+      icon: icons.apps.dkPortfolio,
       width: 35,
       height: 35,
       onClick: () => {

@@ -26,6 +26,7 @@ const ASSETS = {
         winSettings: imagesIconsApps("win-settings.ico"),
         winTrashEmpty: imagesIconsApps("win-trash-empty.ico"),
         winTrashFull: imagesIconsApps("win-trash-full.ico"),
+        dkPortfolio: imagesIconsApps("dk-portfolio.png"),
       },
     },
     profiles: {
