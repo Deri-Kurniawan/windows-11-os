@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - Deri-Kurniawan.github.io](https://img.shields.io/github/issues/Deri-Kurniawan/Deri-Kurniawan.github.io)](https://github.com/Deri-Kurniawan/Deri-Kurniawan.github.io/issues)
 
-Deployed at Vercel - [https://deri-kurniawan.vercel.app](https://deri-kurniawan.vercel.app)
+Deployed at Vercel - [windows11.deri.my.id](https://windows11.deri.my.id)
 
 ## Credits
 
