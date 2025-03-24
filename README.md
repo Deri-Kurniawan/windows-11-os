@@ -11,11 +11,11 @@
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
 [![issues - Deri-Kurniawan.github.io](https://img.shields.io/github/issues/Deri-Kurniawan/Deri-Kurniawan.github.io)](https://github.com/Deri-Kurniawan/Deri-Kurniawan.github.io/issues)
 
-Deployed at Vercel - [windows11.deri.my.id](https://windows11.deri.my.id)
+Web application that mimics the windows 11 operating system
 
 ## Credits
 
-Special thanks to the givers of the sources listed on [CREDITS](https://github.com/Deri-Kurniawan/Deri-Kurniawan.github.io/blob/main/CREDITS.md)
+Special thanks to the givers of the sources listed on [CREDITS](/CREDITS.md)
 
 ## License
 
