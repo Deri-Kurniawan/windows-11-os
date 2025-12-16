@@ -38,7 +38,7 @@ const initialState = {
           "Hello Deri Kurniawan!, [your message here]"
         );
         window.open(
-          `https://wa.me/+6285720959031?text=${textMessage}`,
+          `https://wa.me/+6285793677846?text=${textMessage}`,
           "_blank",
           WIN_FEATURES
         );
